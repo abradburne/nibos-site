@@ -1,0 +1,21 @@
+nibos-site: the nibOS website and manual
+Copyright (c) 2026 Alan Bradburne
+
+This repository is under two licences, by kind of file:
+
+- The text and pictures: everything in content/ (the manual and the site's pages) and
+  static/img/icon.svg are licensed under the Creative Commons Attribution-ShareAlike 4.0
+  International licence (CC BY-SA 4.0): LICENSE-CC-BY-SA-4.0.txt, or
+  https://creativecommons.org/licenses/by-sa/4.0/. Credit "the nibOS manual" with a link to
+  https://nibos.alanb.dev/.
+
+- The code: templates/, static/css/, zola.toml, Makefile and .github/ are licensed under
+  the MIT licence: LICENSE-MIT.
+
+Two parts keep their own licences:
+
+- The screenshots, static/img/shelf.png, grid.png and menu.png, come from DSlot's
+  documentation (https://github.com/abradburne/DSlot) and are under the GNU General Public
+  License, version 3 or later, as DSlot is.
+- Roboto Condensed, static/fonts/*.woff2, copyright 2011 The Roboto Project Authors, is
+  under the SIL Open Font License 1.1: static/fonts/OFL.txt.

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{#- A manual page, or the manual's own front page (section): the chapter list beside it. -#}
+{% block content %}
+{%- set manual = get_section(path="manual/_index.md") %}
+{%- set is_page = page is defined %}
+{%- if is_page %}{% set doc = page %}{% else %}{% set doc = section %}{% endif %}
+<div class="wrap manual">
+  <nav class="toc" aria-label="Manual">
+    <p class="toc-title"><a href="{{ manual.permalink }}">The manual</a></p>
+    <ol>
+      {%- for p in manual.pages %}
+      <li><a href="{{ p.permalink }}"{% if is_page and p.path == page.path %} aria-current="page"{% endif %}>{{ p.title }}</a></li>
+      {%- endfor %}
+    </ol>
+  </nav>
+  <article class="prose">
+    {%- if is_page %}<p class="kicker">{% for p in manual.pages %}{% if p.path == page.path %}Chapter {{ loop.index }}{% endif %}{% endfor %}</p>{% else %}<p class="kicker">Manual</p>{% endif %}
+    <h1>{{ doc.title }}</h1>
+    {%- if doc.description %}<p class="page-lede">{{ doc.description }}</p>{% endif %}
+    {%- if is_page and page.toc | length > 1 %}
+    <details class="on-page" open>
+      <summary>On this page</summary>
+      <ul>{% for h in page.toc %}<li><a href="#{{ h.id }}">{{ h.title }}</a></li>{% endfor %}</ul>
+    </details>
+    {%- endif %}
+    {{ doc.content | safe }}
+    {%- if is_page %}
+    <nav class="pager" aria-label="Previous and next">
+      {%- if page.lower %}<a class="prev" href="{{ page.lower.permalink }}"><span>Previous</span>{{ page.lower.title }}</a>{% endif %}
+      {%- if page.higher %}<a class="next" href="{{ page.higher.permalink }}"><span>Next</span>{{ page.higher.title }}</a>{% endif %}
+    </nav>
+    {%- else %}
+    <ol class="chapters">
+      {%- for p in manual.pages %}
+      <li><a href="{{ p.permalink }}"><strong>{{ p.title }}</strong>{% if p.description %}<span>{{ p.description }}</span>{% endif %}</a></li>
+      {%- endfor %}
+    </ol>
+    {%- endif %}
+  </article>
+</div>
+{% endblock %}

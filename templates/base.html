@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if page is defined and page.title %}{% set doc_title = page.title ~ " · " ~ config.title %}
+{%- elif section is defined and section.title and section.path != "/" %}{% set doc_title = section.title ~ " · " ~ config.title %}
+{%- else %}{% set doc_title = config.title ~ ": Linux for the Anbernic RG DS+" %}{% endif %}
+<title>{{ doc_title }}</title>
+{%- if page is defined and page.description %}{% set doc_description = page.description %}
+{%- elif section is defined and section.description %}{% set doc_description = section.description %}
+{%- else %}{% set doc_description = config.description %}{% endif %}
+<meta name="description" content="{{ doc_description }}">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="{{ current_url | default(value=config.base_url ~ '/') }}">
+<link rel="preload" href="{{ get_url(path='fonts/roboto-condensed-bold.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ get_url(path='css/site.css', cachebust=true) }}">
+{#- Code blocks are drawn dark in both themes, so they always take the dark theme's colours. #}
+<link rel="stylesheet" href="{{ get_url(path='giallo-dark.css') }}">
+<link rel="icon" href="{{ get_url(path='img/icon.svg') }}" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ get_url(path='@/_index.md') }}" aria-label="nibOS, home">
+      <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect x="5" y="2" width="22" height="13" rx="2.5" fill="currentColor"/><rect x="8" y="5" width="16" height="7" rx="1" fill="var(--gold)"/><rect x="5" y="17" width="22" height="13" rx="2.5" fill="currentColor"/><rect x="8" y="20" width="16" height="7" rx="1" fill="var(--gold)"/></svg>
+      <span>nib<b>OS</b></span>
+    </a>
+    <a class="pill header-pill" href="{{ get_url(path='@/manual/known-issues.md') }}" title="What isn't finished">Alpha</a>
+    {%- set here = current_path | default(value="/") %}
+    <nav aria-label="Site">
+      <ul>
+        {%- for item in [
+          ["Manual", "@/manual/_index.md", "/manual/"],
+          ["Apps", "@/apps.md", "/apps/"],
+          ["FAQ", "@/faq.md", "/faq/"],
+          ["Contributing", "@/contributing.md", "/contributing/"],
+          ["Licences", "@/licences.md", "/licences/"],
+        ] %}
+        <li{% if loop.index > 3 %} class="nav-minor"{% endif %}><a href="{{ get_url(path=item[1]) }}"{% if item[2] in here %} aria-current="page"{% endif %}>{{ item[0] }}</a></li>
+        {%- endfor %}
+        <li><a class="nav-cta" href="{{ get_url(path='@/download.md') }}"{% if "/download/" in here %} aria-current="page"{% endif %}>Download</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <p class="brand footer-brand">nib<b>OS</b></p>
+      <p>A Linux system of its own for small handhelds. First on the Anbernic RG DS+.</p>
+      <p class="small">Free software: nibOS and DSlot under the GPL, version 3 or later; nibkit and the emulators under MIT. This site has no tracking, no cookies and no scripts.</p>
+      <p class="small">This manual and site: text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, code MIT, screenshots GPL-3.0-or-later (<a href="{{ get_url(path='@/licences.md') }}#this-site">details</a>).</p>
+    </div>
+    <nav aria-label="Footer">
+      <p class="footer-head">Use it</p>
+      <ul>
+        <li><a href="{{ get_url(path='@/download.md') }}">Download</a></li>
+        <li><a href="{{ get_url(path='@/manual/install.md') }}">Installing</a></li>
+        <li><a href="{{ get_url(path='@/manual/_index.md') }}">The manual</a></li>
+        <li><a href="{{ get_url(path='@/manual/troubleshooting.md') }}">What to do if…</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Project">
+      <p class="footer-head">The project</p>
+      <ul>
+        <li><a href="{{ get_url(path='@/apps.md') }}">Apps</a></li>
+        <li><a href="{{ get_url(path='@/contributing.md') }}">Contributing</a></li>
+        <li><a href="{{ get_url(path='@/licences.md') }}">Licences</a></li>
+        <li><a href="{{ config.extra.repo_base }}">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap">
+    <p class="fineprint">nibOS is not affiliated with Anbernic, Nintendo, Arch Linux or Arch Linux ARM. Names of consoles are their owners' trademarks.</p>
+  </div>
+</footer>
+</body>
+</html>

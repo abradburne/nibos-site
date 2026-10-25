@@ -1,0 +1,61 @@
+# The nibOS website and manual (Zola 0.23: https://www.getzola.org). `make` builds it into public/.
+# The site's address, also in static/CNAME (README.md, "Publishing").
+base_url = "https://nibos.alanb.dev"
+title = "nibOS"
+description = "A Linux system of its own for the Anbernic RG DS+: mainline Linux and U-Boot, Arch Linux ARM, and a game shelf on both screens."
+default_language = "en"
+
+compile_sass = false
+build_search_index = false
+generate_feeds = false
+minify_html = false
+
+[markdown]
+smart_punctuation = true
+external_links_no_follow = false
+external_links_no_referrer = true
+bottom_footnotes = true
+github_alerts = true
+insert_anchor_links = "right"
+
+[markdown.highlighting]
+light_theme = "github-light"
+dark_theme = "github-dark"
+style = "class"
+
+[link_checker]
+# Internal links (@/...) and anchors are checked by every build; external ones by `make check`.
+skip_anchor_prefixes = ["https://github.com/"]
+internal_level = "error"
+external_level = "warn"
+
+[extra]
+repo_base = "https://github.com/abradburne"
+
+# The release the download page offers. Everything about a release is here, so a new one is
+# one edit: the version, the date, the commit, the files with their sizes and SHA-256 (from the
+# release's SHA256SUMS), and the update key. `published = false` turns the download buttons off.
+[extra.release]
+published = true
+version = "0.1.0-alpha1"
+tag = "v0.1.0-alpha1"
+date = "2026-10-25"
+commit = "258399e"
+url = "https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha1"
+download_base = "https://github.com/abradburne/nibos/releases/download/v0.1.0-alpha1"
+key_id = "41B02B0D6ED49D26"
+public_key = "RWQmndRuDSuwQVWE+U7OduA6M/9ibhJbai63nHTWlvvpVrLZ2OuF3h6k"
+
+[[extra.release.images]]
+edition = "DSlot edition"
+summary = "Boots to the DSlot game shelf on both screens, with the emulators. For playing."
+file = "nibos-0.1.0-alpha1-rgds-dslot.img.xz"
+size = "263 MiB"
+sha256 = "06efb79d986d4bcd5a3f57571dc3f44eea0f5c86abb0101521b2a85dd82ad7e2"
+
+[[extra.release.images]]
+edition = "Base edition"
+summary = "Boots to a console on the top screen, with a touch keyboard on the bottom one. For using the DS+ as a small Linux computer."
+file = "nibos-0.1.0-alpha1-rgds.img.xz"
+size = "265 MiB"
+sha256 = "4ae48d0c3228574cda742b42cd9d919b5ce4c006ff8a63b0e329bbf6161a0914"

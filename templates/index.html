@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+{%- set r = config.extra.release %}
+{%- set x = section.extra %}
+
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">{{ x.eyebrow }}</p>
+      <h1>{{ x.headline }}</h1>
+      <p class="lede">{{ x.lede }}</p>
+      <p class="actions">
+        <a class="button primary big" href="{{ get_url(path='@/download.md') }}">{{ <icon name="download" /> }}Download {{ r.version }}</a>
+        <a class="button ghost big" href="{{ get_url(path='@/manual/install.md') }}">{{ <icon name="book" /> }}How to install</a>
+      </p>
+      <p class="hero-note"><span class="pill">Alpha</span> {% if r.published %}Released {{ r.date }}.{% else %}The first alpha is being prepared.{% endif %} It works, and it's new: <a href="{{ get_url(path='@/manual/known-issues.md') }}">read what isn't finished</a>.</p>
+    </div>
+    <div class="hero-device">
+      {{ <device src="shelf.png" alt="An RG DS+ running DSlot: a game's box with its play time on the top screen; three game carts over a card slot on the bottom, touch screen. The games are made up for the picture." eager={true} /> }}
+    </div>
+  </div>
+  <div class="wrap">
+    <ul class="stats">
+      {%- for s in x.stats %}
+      <li><span class="stat-value">{{ s.value }}<small>{{ s.unit }}</small></span><span class="stat-label">{{ s.label }}</span></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="systems" aria-label="Systems nibOS plays">
+  <div class="marquee">
+    {%- for pass in [1, 2] %}
+    <ul{% if pass == 2 %} aria-hidden="true"{% endif %}>
+      {%- for s in x.systems %}<li><span class="dot" style="--c: {{ s.colour }}"></span>{{ s.name }}</li>{% endfor %}
+    </ul>
+    {%- endfor %}
+  </div>
+</section>
+
+{%- for f in x.features %}
+<section class="feature{% if loop.index is even %} flip{% endif %}">
+  <div class="wrap feature-grid">
+    <div class="feature-text">
+      <p class="kicker">{{ f.kicker }}</p>
+      <h2>{{ f.title }}</h2>
+      <p>{{ f.text }}</p>
+      <p><a class="more" href="{{ get_url(path=f.link) }}">{{ f.link_text }} {{ <icon name="arrow" /> }}</a></p>
+    </div>
+    <div class="feature-device">
+      {{ <device src={f.image} alt={f.alt} size="small" /> }}
+    </div>
+  </div>
+</section>
+{%- endfor %}
+
+<section class="cards-band">
+  <div class="wrap">
+    <p class="kicker">The rest of the device</p>
+    <h2>Everything on the board works</h2>
+    <ul class="cards">
+      {%- for c in x.cards %}
+      <li>{{ <icon name={c.icon} /> }}<h3>{{ c.title }}</h3><p>{{ c.text }}</p></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="stack-band">
+  <div class="wrap stack-grid">
+    <div>
+      <p class="kicker">Under the shelf</p>
+      <h2>Mainline, open, and yours</h2>
+      <p>No frozen vendor kernel: mainline Linux and U-Boot, with patches written to go upstream, open graphics drivers, and Arch Linux ARM's packages. Nothing in an image comes from the stock firmware, so it can be passed on, and every part is free software.</p>
+      <p><a class="more" href="{{ get_url(path='@/apps.md') }}">The projects {{ <icon name="arrow" /> }}</a> &nbsp; <a class="more" href="{{ get_url(path='@/licences.md') }}">The licences {{ <icon name="arrow" /> }}</a></p>
+    </div>
+    <ol class="stack" reversed>
+      {%- for l in x.stack %}
+      <li style="--i: {{ loop.index0 }}"><strong>{{ l.name }}</strong><span>{{ l.note }}</span></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="start-band">
+  <div class="wrap">
+    <p class="kicker">Start here</p>
+    <h2>Three steps to the shelf</h2>
+    <ol class="steps">
+      <li><a href="{{ get_url(path='@/download.md') }}"><span class="step-n">1</span><strong>Download</strong><span>An image for the DS+, and its checksum.</span></a></li>
+      <li><a href="{{ get_url(path='@/manual/install.md') }}"><span class="step-n">2</span><strong>Write a card</strong><span>With balenaEtcher or dd. Your stock card stays as it is.</span></a></li>
+      <li><a href="{{ get_url(path='@/manual/games.md') }}"><span class="step-n">3</span><strong>Add your games</strong><span>Copy them into Roms/ and power on.</span></a></li>
+    </ol>
+    <p class="small">nibOS comes with no games: play your own, or the many free homebrew games for these systems. The games in the pictures are made up.</p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap story-inner">
+    <p class="kicker">How it was made</p>
+    {{ section.content | safe }}
+  </div>
+</section>
+{% endblock %}

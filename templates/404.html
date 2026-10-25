@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="page-head">
+  <div class="wrap">
+    <p class="kicker">404</p>
+    <h1>Nothing in this slot</h1>
+    <p class="page-lede">The page you asked for isn't here. It may have moved.</p>
+  </div>
+</header>
+<div class="wrap prose page-body">
+  <p class="actions">
+    <a class="button primary" href="{{ get_url(path='@/_index.md') }}">Home</a>
+    <a class="button" href="{{ get_url(path='@/manual/_index.md') }}">The manual</a>
+    <a class="button" href="{{ get_url(path='@/download.md') }}">Download</a>
+  </p>
+</div>
+{% endblock %}

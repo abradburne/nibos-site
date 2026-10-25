@@ -12,8 +12,8 @@ description = "nibOS images for the Anbernic RG DS+, how to check them, the rele
 ## nibOS {{ r.version }}
 
 The first public build, released {{ r.date }}. For the **Anbernic RG DS+** only. Write an image
-to a microSD card of 16 GB or more with balenaEtcher, Raspberry Pi Imager or `dd`:
-[Installing](@/manual/install.md) has every step. Both editions have the same system
+to a microSD card of 16 GB or more with Raspberry Pi Imager or `dd`, or with balenaEtcher
+once the image is unpacked: [Installing](@/manual/install.md) has every step. Both editions have the same system
 underneath, and either can be written over the other.
 
 {{ <release_images release={r} /> }}

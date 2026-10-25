@@ -14,9 +14,10 @@ system again.
 - An **Anbernic RG DS+**. nibOS runs on no other device yet.
 - A **microSD card of 16 GB or more**. Everything on it is erased. Use a card of its own rather
   than the one the DS+ came with, so that you can go back to stock by swapping cards.
-- A computer with a card reader, and an imaging program. [balenaEtcher](https://etcher.balena.io)
-  works on macOS, Windows and Linux and needs no other steps; Raspberry Pi Imager and `dd` work
-  too.
+- A computer with a card reader, and an imaging program.
+  [Raspberry Pi Imager](https://www.raspberrypi.com/software/) works on macOS, Windows and Linux
+  and writes the downloaded file as it is; `dd` works too. balenaEtcher works only with the
+  image unpacked first (below).
 
 ## 1. Download
 
@@ -27,7 +28,8 @@ From the [download page](@/download.md), pick an edition:
 - **Base edition** (`{{ config.extra.release.images[1].file }}`): starts into a Linux console. Choose this to use the DS+ as a
   small computer ([The console and the base edition](@/manual/console.md)).
 
-The file is compressed (`.xz`); you don't need to uncompress it.
+The file is compressed (`.xz`). Raspberry Pi Imager and `dd` write it as it is; for
+balenaEtcher, unpack it first.
 
 ## 2. Check the download
 
@@ -49,11 +51,15 @@ the file again; don't write a file that doesn't match.
 
 ## 3. Write the card
 
-### With balenaEtcher
+### With Raspberry Pi Imager
 
-1. Open balenaEtcher and choose **Flash from file**: the `.img.xz` you downloaded.
-2. **Select target**: your microSD card. Check the size: choosing the wrong drive erases it.
-3. **Flash**. It writes, then reads the card back to check it.
+1. Open Raspberry Pi Imager. If it asks which Raspberry Pi you have, any answer will do: it
+   only filters its own list.
+2. For the operating system, choose **Use custom**, then the `.img.xz` you downloaded.
+3. For storage, choose your microSD card. Check the size: choosing the wrong drive erases it.
+4. If it offers OS customisation (user name, Wi-Fi), skip it: that is for Raspberry Pi OS.
+   nibOS's own settings go in `provision.toml` (below).
+5. Write. It writes, then reads the card back to check it.
 
 ### With dd (macOS and Linux)
 
@@ -74,13 +80,26 @@ On Linux, `lsblk` shows it as `/dev/sdX` or `/dev/mmcblkN`, then:
 xzcat {{ config.extra.release.images[0].file }} | sudo dd of=/dev/sdX bs=4M conv=fsync status=progress
 ```
 
+### With balenaEtcher
+
+balenaEtcher (2.1.6, on macOS) writes a `.img.xz` wrongly: it ends with "The writer process
+ended unexpectedly", and the card doesn't start. It writes an unpacked image correctly, so
+unpack it first:
+
+1. Unpack the `.img.xz`: on macOS, double-click it; on Windows, use [7-Zip](https://www.7-zip.org);
+   on Linux, `unxz` it. You get a `.img` of about 7 GB.
+2. Open balenaEtcher and choose **Flash from file**: the `.img`.
+3. **Select target**: your microSD card. Check the size: choosing the wrong drive erases it.
+4. **Flash**. It writes, then reads the card back to check it.
+
 When the card is written, your computer shows a small drive called **NIBOS**, and you can eject
 the card.
 
 > [!WARNING]
 > The card has other partitions that macOS and Windows can't read. If your computer says the
-> disk is unreadable, or **offers to format it, say no** (Ignore, or Cancel): formatting would
-> erase nibOS.
+> disk is unreadable, or **offers to format it, say no** (Ignore, Eject or Cancel; on macOS
+> never **Initialise**): formatting would erase nibOS. The message can appear while the card is
+> still being written; answer it the same way and let the writing finish.
 
 ## 4. Into the DS+
 

@@ -82,6 +82,9 @@ xzcat {{ config.extra.release.images[0].file }} | sudo dd of=/dev/sdX bs=4M conv
 
 ### With balenaEtcher
 
+nibOS checks the card about a minute after its first start and says on the shelf if it was
+written wrongly ([What to do if…](@/manual/troubleshooting.md#this-card-was-not-written-correctly)).
+
 balenaEtcher (2.1.6, on macOS) writes a `.img.xz` wrongly: it ends with "The writer process
 ended unexpectedly", and the card doesn't start. It writes an unpacked image correctly, so
 unpack it first:

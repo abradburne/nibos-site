@@ -27,16 +27,16 @@ An update needs Wi-Fi, and the battery at 30% or more (or the charger in).
 
 | Kept | Not kept |
 |---|---|
-| Games, BIOS files and saves (NIBOS-DATA) | **Your password**, if you set one (below) |
-| Your home folder: DSlot's and the emulators' settings, play times, ratings, `~/.ssh` | Packages you installed with `pacman` |
-| Wi-Fi networks (also those joined in DSlot), Bluetooth pairings, and the radios on or off | Any other change to the system's files outside your home folder |
+| Games, BIOS files and saves (NIBOS-DATA) | Packages you installed with `pacman` |
+| Your home folder: DSlot's and the emulators' settings, play times, ratings, `~/.ssh` | Any other change to the system's files outside your home folder |
+| Wi-Fi networks (also those joined in DSlot), Bluetooth pairings, and the radios on or off | |
 | The SSH keys from `provision.toml`, and the device's own SSH host keys | |
 | Brightness, the lid setting, battery protect, an imported speaker tuning | |
+| Your password, set with `passwd` or in `provision.toml` | |
 
-> [!WARNING]
-> **A password isn't kept by an update** in this release, whether you set it with `passwd` or in
-> `provision.toml`: after an update the device has no password again, and the console logs in by
-> itself. Set it again with `passwd`. This will be fixed in a later release.
+> [!NOTE]
+> 0.1.0-alpha1's updater didn't carry the password over; 0.1.0-alpha2 takes it from the previous
+> version on its first start, so a password set on alpha1 is there after the update.
 
 ## From DSlot
 
@@ -54,8 +54,7 @@ running, and the channel (Stable or Beta).
 
 A problem (no network, the battery low, a damaged download) is said on the page, and **Try
 again** repeats the step. "No updates published yet" means there is no newer release for your
-DS+: it isn't an error. {{ config.extra.release.version }} is the first release, so that is what
-it says for now.
+DS+: it isn't an error. A DS+ on 0.1.0-alpha1 is offered {{ config.extra.release.version }}.
 
 ## From the console
 

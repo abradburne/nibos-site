@@ -20,6 +20,15 @@ here can harm the DS+ itself, since everything nibOS has is on its card.
   screens, whatever is wrong with the usual way. If it gets to the shelf or the console, the
   problem was in the start-up itself: [report it](#reporting-a-bug) with the logs.
 
+## "This card was not written correctly"
+
+About a minute after a card's first start, nibOS checks every file the image shipped against the
+image's own list. This notice on the shelf means some differ: the imaging tool wrote the card
+wrongly (balenaEtcher 2.1.6 does, given a `.img.xz`), and programs fail in odd ways, such as one
+emulator quitting at once while another plays. Write the image again with Raspberry Pi Imager
+or `dd` ([Installing](@/manual/install.md#3-write-the-card)); your games on NIBOS-DATA stay.
+Updates are refused until the card is rewritten.
+
 ## "DSlot stopped working"
 
 DSlot crashed several times in a row, and nibOS's safe mode took over. The top screen says what
@@ -40,6 +49,9 @@ seconds to cut the power.
 
 - **It says a BIOS file is missing.** The message names the file and where it looked: put your
   copy in `BIOS/` at a card's root ([Games, BIOS and saves](@/manual/games.md#bios-files)).
+- **It comes straight back to the shelf.** The shelf says why in a notice: the emulator's own
+  last line ("DSperate stopped (exit 1): launch: … ZIP NOT SUPPORTED", or where it crashed).
+  Press **Y** there to send a bug report (below); any other button closes it.
 - **It says the file can't be read**, or the zip is damaged: copy the game onto the card again.
   A `.zip` must hold one game; disc games can't be zipped.
 - **It isn't on the shelf.** Check the folder ([Games, BIOS and saves](@/manual/games.md#the-folders))
@@ -73,7 +85,15 @@ Turn the DS+ off and put the stock card back in TF1. Nothing else is needed.
 
 ## Reporting a bug
 
-Every start leaves its logs on the card, readable on any computer even when the DS+ can't get
+**From the DS+:** when a game comes straight back, the notice offers **Y: send a bug report**;
+from the console, `nib bug-report send`. Either saves a copy of this start's log on the card as
+`nibos/bug-report-<date>.txt` on the NIBOS-DATA drive, with your Wi-Fi network names and
+passphrases, MAC and IP addresses and the hostname taken out, and, with Wi-Fi on, sends it to
+nibOS's bug tracker. The shelf then shows a short **report code**: quote it when you report the
+problem, and nothing else needs attaching. With no Wi-Fi the file is saved all the same; attach
+it instead. `nib bug-report` without `send` only saves the file.
+
+**By hand:** every start leaves its logs on the card, readable on any computer even when the DS+ can't get
 to its shelf:
 
 - **Where**: on the **NIBOS-DATA** drive, in `nibos/log/`, files named `boot-<date>.txt`. The

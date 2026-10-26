@@ -11,7 +11,8 @@ description = "nibOS images for the Anbernic RG DS+, how to check them, the rele
 
 ## nibOS {{ r.version }}
 
-The first public build, released {{ r.date }}. For the **Anbernic RG DS+** only. Write an image
+The second alpha, released {{ r.date }}. For the **Anbernic RG DS+** only. A DS+ on
+0.1.0-alpha1 can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
 to a microSD card of 16 GB or more with Raspberry Pi Imager or `dd`, or with balenaEtcher
 once the image is unpacked: [Installing](@/manual/install.md) has every step. Both editions have the same system
 underneath, and either can be written over the other.
@@ -74,24 +75,26 @@ downloads; to write a card, use the `.img.xz`.
 
 ## Release notes
 
-The first public alpha. In short:
+What changed since 0.1.0-alpha1:
 
-- **Images to write to a card**, with first-start setup from `provision.toml`: Wi-Fi, SSH keys,
-  a password, the time zone.
-- **DSlot** as the start-up screen, about 5 seconds from power-on: a page per system, the system
-  picker and cards, resume points, Cart Studio labels and shells, Wi-Fi and Bluetooth settings,
-  the power menu.
-- **One menu** shared by DSlot and every emulator; saves for every system kept together in
-  `Saves/`.
-- **The whole board works**: both screens and touch, the buttons, speakers and headphones,
-  Wi-Fi and Bluetooth, both card slots, USB, deep sleep with Wi-Fi back on wake, charging while
-  off, battery protect.
-- **Looks after itself**: a safe mode when DSlot fails, a watchdog that restarts a hung device,
-  and two copies of the system so a bad update goes back by itself.
-- **System updates**: signed releases written to the copy of the system that isn't running,
-  from DSlot's Update page or `nib update`. Games, saves and settings stay. This is the first
-  release, so there is nothing to update to yet: "No updates published yet" is expected.
-- **The console** with an on-screen keyboard; PortMaster on request.
+- **The first update over the air.** A DS+ on 0.1.0-alpha1 is offered this release on DSlot's
+  Update page (X → System → Update), and `nib update` in the console. Games, saves and
+  settings stay; a password set on alpha1 is kept too.
+- **Starting with no card in TF2 no longer takes minutes.** The second card is mounted the
+  moment it is put in and let go when it is taken out, and the shelf leaves it out when the
+  slot is empty.
+- **A game that comes straight back says why.** When an emulator stops at once, the shelf
+  shows a notice with the emulator's own last line, and offers **Y: send a bug report**.
+- **Bug reports from the device.** A copy of the start's log, with Wi-Fi names, passphrases,
+  addresses and the hostname taken out, saved on the card as `nibos/bug-report-<date>.txt` and,
+  with Wi-Fi on, sent to nibOS's bug tracker; the shelf shows a report code to quote
+  ([What to do if…](@/manual/troubleshooting.md#reporting-a-bug)).
+- **A card that wasn't written right says so.** About a minute after the first start, nibOS
+  checks every file the image shipped and, if the card was written wrongly, says so on the
+  shelf ([What to do if…](@/manual/troubleshooting.md#this-card-was-not-written-correctly)).
+- DSlot 0.3.1 and nibkit 0.1.1.
+
+The first alpha's notes are on its [release page](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha1).
 
 What isn't finished: [Known issues](@/manual/known-issues.md). Every change, day by day:
 nibOS's [changelog](https://github.com/abradburne/nibos/blob/{{ r.tag }}/CHANGELOG.md).
@@ -115,12 +118,12 @@ images, and for at least three years after this release was last offered:
 | Part | Source |
 |---|---|
 | nibOS: kernel and U-Boot patches, device tree, hardware layer, tools | [abradburne/nibos](https://github.com/abradburne/nibos/tree/{{ r.tag }}) at `{{ r.tag }}` |
-| DSlot | [abradburne/DSlot](https://github.com/abradburne/DSlot) at `84d2f35` |
-| DSperate | [abradburne/DSperate](https://github.com/abradburne/DSperate) at `fc88c53` |
-| inkdot | [abradburne/inkdot](https://github.com/abradburne/inkdot) at `9c8d768` |
+| DSlot | [abradburne/DSlot](https://github.com/abradburne/DSlot/tree/e224fc5) at `e224fc5` |
+| DSperate | [abradburne/DSperate](https://github.com/abradburne/DSperate/tree/7c88c8f) at `7c88c8f` |
+| inkdot | [abradburne/inkdot](https://github.com/abradburne/inkdot/tree/ba0f50c) at `ba0f50c` |
 | nibcase | [abradburne/nibcase](https://github.com/abradburne/nibcase) |
 | inktick | [abradburne/inktick](https://github.com/abradburne/inktick) |
-| nibkit | [abradburne/nibkit](https://github.com/abradburne/nibkit) at `v0.1.0` |
+| nibkit | [abradburne/nibkit](https://github.com/abradburne/nibkit/tree/v0.1.1) at `v0.1.1` |
 | Arch Linux ARM packages | The source packages of the GPL and LGPL packages in `packages.txt`, attached to the [release]({{ r.url }}) |
 
 The kernel is mainline Linux at `0fcb05b` with the patches in nibOS's `kernel/`,

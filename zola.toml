@@ -40,25 +40,25 @@ repo = "https://github.com/abradburne/nibos"
 # release's SHA256SUMS), and the update key. `published = false` turns the download buttons off.
 [extra.release]
 published = true
-version = "0.1.0-alpha1"
-tag = "v0.1.0-alpha1"
-date = "2026-10-25"
-commit = "258399e"
-url = "https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha1"
-download_base = "https://github.com/abradburne/nibos/releases/download/v0.1.0-alpha1"
+version = "0.1.0-alpha2"
+tag = "v0.1.0-alpha2"
+date = "2026-10-26"
+commit = "b32321d"
+url = "https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha2"
+download_base = "https://github.com/abradburne/nibos/releases/download/v0.1.0-alpha2"
 key_id = "41B02B0D6ED49D26"
 public_key = "RWQmndRuDSuwQVWE+U7OduA6M/9ibhJbai63nHTWlvvpVrLZ2OuF3h6k"
 
 [[extra.release.images]]
 edition = "DSlot edition"
 summary = "Boots to the DSlot game shelf on both screens, with the emulators. For playing."
-file = "nibos-0.1.0-alpha1-rgds-dslot.img.xz"
+file = "nibos-0.1.0-alpha2-rgds-dslot.img.xz"
 size = "263 MiB"
-sha256 = "06efb79d986d4bcd5a3f57571dc3f44eea0f5c86abb0101521b2a85dd82ad7e2"
+sha256 = "c4253c7e297640816b357599d8ddb434c54f42d92d09399225b8d7e5f52cd8e6"
 
 [[extra.release.images]]
 edition = "Base edition"
 summary = "Boots to a console on the top screen, with a touch keyboard on the bottom one. For using the DS+ as a small Linux computer."
-file = "nibos-0.1.0-alpha1-rgds.img.xz"
-size = "265 MiB"
-sha256 = "4ae48d0c3228574cda742b42cd9d919b5ce4c006ff8a63b0e329bbf6161a0914"
+file = "nibos-0.1.0-alpha2-rgds.img.xz"
+size = "266 MiB"
+sha256 = "cfd1c05958f62d5b2635a6c2c56188a3b6002c67f1a4819b0e51548e7d646937"

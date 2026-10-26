@@ -4,24 +4,22 @@ description = "What is unfinished in the alpha, what doesn't work yet, and what 
 weight = 12
 +++
 
-nibOS {{ config.extra.release.version }} is an **alpha**: the first version anyone outside the
+nibOS {{ config.extra.release.version }} is an **alpha**: the second version anyone outside the
 project can install. Everything on the RG DS+ works, and every change was tried on a real one,
 but it has been tried on few devices and few cards, and some things that a finished
 system has are still to come. This page says what.
 
 ## Not there yet
 
-- **Updates** are new in this release, and this is the first release, so no device has taken
-  one yet ([Updates](@/manual/updates.md)). Cards built from source (development cards) don't
-  update themselves; image cards do.
+- **Updates** are new: 0.1.0-alpha2 is the first release a device takes over the air
+  ([Updates](@/manual/updates.md)). Cards built from source (development cards) don't update
+  themselves; image cards do.
 - **Packages.** nibOS's own packages (kernel, hardware layer, DSlot, the emulators) aren't in a
   package repository: they come with the system and its updates, not with `pacman`, so the
   base edition can't add DSlot.
 - **Security.** There are no passwords unless `provision.toml` sets one: the console logs in by
   itself and `sudo` asks for nothing, so anyone holding the DS+ has full control of it. SSH is
   off until you give a key, and never takes passwords. The system partition is writable.
-- **A password isn't kept by an update**: set it again with `passwd` afterwards
-  ([Updates](@/manual/updates.md#what-an-update-keeps)).
 - **Installing** needs a computer to write the card; there is no installer on the device.
 - **One device.** nibOS runs on the Anbernic RG DS+ only.
 

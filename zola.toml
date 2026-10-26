@@ -30,7 +30,10 @@ internal_level = "error"
 external_level = "warn"
 
 [extra]
-repo_base = "https://github.com/abradburne"
+# The GitHub account the footer's source links are under, and nibOS's repository (the header's
+# GitHub mark).
+github = "https://github.com/abradburne"
+repo = "https://github.com/abradburne/nibos"
 
 # The release the download page offers. Everything about a release is here, so a new one is
 # one edit: the version, the date, the commit, the files with their sizes and SHA-256 (from the

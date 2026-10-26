@@ -68,6 +68,7 @@ release. The repositories are on [GitHub](https://github.com/abradburne); each h
   site, and share what you make under the same licence.
 - **The templates and stylesheet** are under the MIT licence.
 - **The screenshots** come from DSlot's documentation and are GPL-3.0-or-later, like DSlot. The
-  font, Roboto Condensed, is under the SIL Open Font License 1.1.
+  font, Roboto Condensed, is under the SIL Open Font License 1.1. The GitHub mark in the header
+  is GitHub's [Octicons](https://github.com/primer/octicons) `mark-github`, under MIT.
 
 The site's [repository](https://github.com/abradburne/nibos-site) has the licence texts.

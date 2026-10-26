@@ -121,12 +121,14 @@ h1, h2, h3, .kicker, .eyebrow, .button, .pill, .brand, .site-header nav, .stat-v
 }
 .site-header nav a:hover { color: var(--night-text); background: rgb(255 255 255 / 0.06); }
 .site-header nav a[aria-current="page"] { color: var(--night-text); background: rgb(255 255 255 / 0.09); }
+.site-header nav a.nav-github { display: inline-flex; align-items: center; padding: 0.35rem 0.5rem; }
 .site-header nav a.nav-cta { color: var(--night); background: var(--gold); font-weight: 700; margin-left: 0.3rem; }
 .site-header nav a.nav-cta:hover { background: #ffd866; }
 @media (max-width: 47.99rem) {
   .site-header nav { margin-left: -0.55rem; width: calc(100% + 0.55rem); }
   .site-header nav a { white-space: nowrap; padding: 0.25rem 0.55rem; font-size: 0.98rem; }
   .site-header nav a.nav-cta { margin-left: 0; }
+  .site-header nav a.nav-github { padding: 0.25rem 0.45rem; }
   .site-header .nav-minor { display: none; }
 }
 
@@ -460,7 +462,8 @@ h1, h2, h3, .kicker, .eyebrow, .button, .pill, .brand, .site-header nav, .stat-v
 .site-footer a { color: var(--night-text); text-decoration: none; }
 .site-footer a:hover { text-decoration: underline; }
 .footer-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
-@media (min-width: 48rem) { .footer-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); } }
+@media (min-width: 36rem) { .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .footer-about { grid-column: 1 / -1; } }
+@media (min-width: 60rem) { .footer-grid { grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); } .footer-about { grid-column: auto; } }
 .footer-brand { display: block; font-family: var(--display); font-size: 1.6rem; font-weight: 700; color: var(--night-text); margin: 0 0 0.3rem; }
 .footer-about p { max-width: 30rem; }
 .footer-about .small { color: var(--night-dim); }

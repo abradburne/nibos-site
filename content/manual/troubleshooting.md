@@ -51,7 +51,9 @@ seconds to cut the power.
   copy in `BIOS/` at a card's root ([Games, BIOS and saves](@/manual/games.md#bios-files)).
 - **It comes straight back to the shelf.** The shelf says why in a notice: the emulator's own
   last line ("DSperate stopped (exit 1): launch: … ZIP NOT SUPPORTED", or where it crashed).
-  Press **Y** there to send a bug report (below); any other button closes it.
+  Press **Y** there to send a bug report (below); any other button closes it. On 0.1.0-alpha3
+  and earlier, a DS or GBA game that came back at once with "signal 9" and no other reason
+  was the kernel's real-time watchdog catching the emulator's start-up; 0.1.0-alpha4 fixes it.
 - **It says the file can't be read**, or the zip is damaged: copy the game onto the card again.
   A `.zip` must hold one game; disc games can't be zipped.
 - **It isn't on the shelf.** Check the folder ([Games, BIOS and saves](@/manual/games.md#the-folders))

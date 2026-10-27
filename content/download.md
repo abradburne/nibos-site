@@ -11,8 +11,8 @@ description = "nibOS images for the Anbernic RG DS+, how to check them, the rele
 
 ## nibOS {{ r.version }}
 
-The third alpha, released {{ r.date }}. For the **Anbernic RG DS+** only. A DS+ on
-0.1.0-alpha1 or alpha2 can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
+The fourth alpha, released {{ r.date }}. For the **Anbernic RG DS+** only. A DS+ on
+0.1.0-alpha1, alpha2 or alpha3 can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
 to a microSD card of 16 GB or more with Raspberry Pi Imager or `dd`, or with balenaEtcher
 once the image is unpacked: [Installing](@/manual/install.md) has every step. Both editions have the same system
 underneath, and either can be written over the other.
@@ -75,23 +75,20 @@ downloads; to write a card, use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-alpha2:
+What changed since 0.1.0-alpha3:
 
-- **Y: send a bug report works.** In 0.1.0-alpha2 the shelf's notice offered it but the button
-  did nothing (the program behind it was installed without execute permission). The report
-  now also carries the kernel's first lines, the board and its memory, which a crash report
-  needs ([What to do if…](@/manual/troubleshooting.md#reporting-a-bug)).
-- **Three new pages in DSlot's menu** (DSlot 0.3.2): **System info** on the System page, the
-  device and what it is using, read every second; **Date and time** on the System page, with
-  **Sync now** over Wi-Fi, a time-zone picker and setting by hand; **Network info** on the
-  Wi-Fi page, what to read out when something won't connect
-  ([Connections](@/manual/connections.md#network-info)).
-- **The safe mode steps aside** when DSlot is started again, and now comes up at all after a
-  crash: before, a DSlot that kept crashing left a login prompt on the top screen.
-- `nib update` refuses to update a card whose root check failed, as alpha2's notes said it
-  would.
+- **DS and GBA games that quit at once with "signal 9" start.** The first bug report sent from
+  alpha3 showed the cause: the emulator went real-time right after reading its settings and ran
+  to its first frame without a pause, and under the 200 ms real-time budget it inherits from the
+  shelf the kernel killed it, silently, whenever that stretch took longer than 200 ms of
+  processor time, as on a slow clock. DSperate now starts up as an ordinary task and goes
+  real-time only when emulation begins.
+- **The kernel names what it kills.** A program that dies of a signal it did not handle leaves
+  a line with its name in the kernel log, and so in a bug report, where alpha3's cause could
+  only be read as "exited with signal: 9".
 
 The earlier alphas' notes are on their release pages:
+[0.1.0-alpha3](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha3),
 [0.1.0-alpha2](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha2),
 [0.1.0-alpha1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha1).
 

@@ -62,7 +62,7 @@ goes back to the game:
 | **States** | The resume point (where you last left the game) at the left, then six save slots, each with its picture and when it was saved. A loads; X saves into a slot (X again to save over a used one). |
 | **Game** | Settings for this game only. |
 | **The console** (DS, GBA, GB, …) | Settings for every game of that system. |
-| **System** | Volume, each screen's brightness, the clock (12- or 24-hour). |
+| **System** | Volume, each screen's brightness, the clock (12- or 24-hour), the date, time and time zone, system info. |
 | **Connections** | Wi-Fi and Bluetooth on or off, paired headphones connected or disconnected. Joining networks and pairing are in DSlot's menu. |
 
 Settings in a game's menu and in DSlot's menu are the same settings: a change in one shows in

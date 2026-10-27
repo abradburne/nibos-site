@@ -40,6 +40,16 @@ Other ways to add a network:
 
 After sleep, Wi-Fi reconnects about 2 seconds after the DS+ wakes.
 
+### Network info
+
+The Wi-Fi page shows your address (**Address**) under the network you are on. For the rest,
+choose **Network info** (or press **Y** on the Wi-Fi page): whether Wi-Fi is on and connected,
+the network and its signal, the address, gateway and DNS servers, the device's name on the
+network (`nibos.local`, what to `ssh` to), the Wi-Fi MAC address, and whether the internet,
+nibOS's update server and its bug tracker can be reached ("Reachable", "No route" or "DNS
+failed"). It updates as you watch; **A** runs the checks again, **B** goes back. When asking for
+help with a connection or a bug report that won't send, this is the page to read out.
+
 In a game, the menu's **Connections** page turns Wi-Fi and Bluetooth on or off; choosing a
 network is in DSlot.
 

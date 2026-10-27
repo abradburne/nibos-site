@@ -111,7 +111,7 @@ Sizes and every detail: [DSlot's artwork guide](https://github.com/abradburne/DS
 |---|---|
 | **Game** | The selected game: favourite and rating; the emulator it starts in, and that emulator's options for it; **Clear resume state**; **Delete saves** (each asks first: A, then A again). |
 | **The console** (DS, GBA, …) | Every game of that system: the emulator (when more than one is installed), its options, and how the page is shown (View, Sort by, Show, Game case). |
-| **System** | How every page is shown; sounds; button repeat; the screensaver; the volume, each screen's brightness, Wi-Fi, the battery and battery protect, the speaker tuning; **Rescan games**; **Start at power-on**; **Power off**. |
+| **System** | How every page is shown; sounds; button repeat; the screensaver; the volume, each screen's brightness, Wi-Fi, the battery and battery protect, the speaker tuning; **Date and time** (set from the network, or by hand, and the time zone); **System info** (the device, its memory, load, temperatures, storage and battery, live); **Rescan games**; **Start at power-on**; **Power off**. |
 | **Wi-Fi**, **Bluetooth** | The radios ([Wi-Fi and Bluetooth](@/manual/connections.md)). |
 | **Update** | System updates: the version running, checking, downloading and installing a newer one, going back ([Updates](@/manual/updates.md)). |
 

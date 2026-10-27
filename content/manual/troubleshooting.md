@@ -85,7 +85,7 @@ Turn the DS+ off and put the stock card back in TF1. Nothing else is needed.
 
 ## Reporting a bug
 
-**From the DS+:** when a game comes straight back, the notice offers **Y: send a bug report**;
+**From the DS+:** when a game comes straight back, the notice offers **Y: send a bug report** (on 0.1.0-alpha2 the button did nothing; 0.1.0-alpha3 fixed it);
 from the console, `nib bug-report send`. Either saves a copy of this start's log on the card as
 `nibos/bug-report-<date>.txt` on the NIBOS-DATA drive, with your Wi-Fi network names and
 passphrases, MAC and IP addresses and the hostname taken out, and, with Wi-Fi on, sends it to

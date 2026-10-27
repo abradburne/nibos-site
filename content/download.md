@@ -11,8 +11,8 @@ description = "nibOS images for the Anbernic RG DS+, how to check them, the rele
 
 ## nibOS {{ r.version }}
 
-The second alpha, released {{ r.date }}. For the **Anbernic RG DS+** only. A DS+ on
-0.1.0-alpha1 can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
+The third alpha, released {{ r.date }}. For the **Anbernic RG DS+** only. A DS+ on
+0.1.0-alpha1 or alpha2 can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
 to a microSD card of 16 GB or more with Raspberry Pi Imager or `dd`, or with balenaEtcher
 once the image is unpacked: [Installing](@/manual/install.md) has every step. Both editions have the same system
 underneath, and either can be written over the other.
@@ -75,26 +75,25 @@ downloads; to write a card, use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-alpha1:
+What changed since 0.1.0-alpha2:
 
-- **The first update over the air.** A DS+ on 0.1.0-alpha1 is offered this release on DSlot's
-  Update page (X → System → Update), and `nib update` in the console. Games, saves and
-  settings stay; a password set on alpha1 is kept too.
-- **Starting with no card in TF2 no longer takes minutes.** The second card is mounted the
-  moment it is put in and let go when it is taken out, and the shelf leaves it out when the
-  slot is empty.
-- **A game that comes straight back says why.** When an emulator stops at once, the shelf
-  shows a notice with the emulator's own last line, and offers **Y: send a bug report**.
-- **Bug reports from the device.** A copy of the start's log, with Wi-Fi names, passphrases,
-  addresses and the hostname taken out, saved on the card as `nibos/bug-report-<date>.txt` and,
-  with Wi-Fi on, sent to nibOS's bug tracker; the shelf shows a report code to quote
-  ([What to do if…](@/manual/troubleshooting.md#reporting-a-bug)).
-- **A card that wasn't written right says so.** About a minute after the first start, nibOS
-  checks every file the image shipped and, if the card was written wrongly, says so on the
-  shelf ([What to do if…](@/manual/troubleshooting.md#this-card-was-not-written-correctly)).
-- DSlot 0.3.1 and nibkit 0.1.1.
+- **Y: send a bug report works.** In 0.1.0-alpha2 the shelf's notice offered it but the button
+  did nothing (the program behind it was installed without execute permission). The report
+  now also carries the kernel's first lines, the board and its memory, which a crash report
+  needs ([What to do if…](@/manual/troubleshooting.md#reporting-a-bug)).
+- **Three new pages in DSlot's menu** (DSlot 0.3.2): **System info** on the System page, the
+  device and what it is using, read every second; **Date and time** on the System page, with
+  **Sync now** over Wi-Fi, a time-zone picker and setting by hand; **Network info** on the
+  Wi-Fi page, what to read out when something won't connect
+  ([Connections](@/manual/connections.md#network-info)).
+- **The safe mode steps aside** when DSlot is started again, and now comes up at all after a
+  crash: before, a DSlot that kept crashing left a login prompt on the top screen.
+- `nib update` refuses to update a card whose root check failed, as alpha2's notes said it
+  would.
 
-The first alpha's notes are on its [release page](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha1).
+The earlier alphas' notes are on their release pages:
+[0.1.0-alpha2](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha2),
+[0.1.0-alpha1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha1).
 
 What isn't finished: [Known issues](@/manual/known-issues.md). Every change, day by day:
 nibOS's [changelog](https://github.com/abradburne/nibos/blob/{{ r.tag }}/CHANGELOG.md).

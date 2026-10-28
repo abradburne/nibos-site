@@ -11,8 +11,8 @@ description = "nibOS images for the Anbernic RG DS+, how to check them, the rele
 
 ## nibOS {{ r.version }}
 
-The fourth alpha, released {{ r.date }}. For the **Anbernic RG DS+** only. A DS+ on
-0.1.0-alpha1, alpha2 or alpha3 can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
+The fifth alpha, released {{ r.date }}. For the **Anbernic RG DS+** only. A DS+ on
+0.1.0-alpha1 to alpha4 can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
 to a microSD card of 16 GB or more with Raspberry Pi Imager or `dd`, or with balenaEtcher
 once the image is unpacked: [Installing](@/manual/install.md) has every step. Both editions have the same system
 underneath, and either can be written over the other.
@@ -75,19 +75,29 @@ downloads; to write a card, use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-alpha3:
+What changed since 0.1.0-alpha4:
 
-- **DS and GBA games that quit at once with "signal 9" start.** The first bug report sent from
-  alpha3 showed the cause: the emulator went real-time right after reading its settings and ran
-  to its first frame without a pause, and under the 200 ms real-time budget it inherits from the
-  shelf the kernel killed it, silently, whenever that stretch took longer than 200 ms of
-  processor time, as on a slow clock. DSperate now starts up as an ordinary task and goes
-  real-time only when emulation begins.
-- **The kernel names what it kills.** A program that dies of a signal it did not handle leaves
-  a line with its name in the kernel log, and so in a bug report, where alpha3's cause could
-  only be read as "exited with signal: 9".
+- **RetroAchievements.** DSlot 0.4.0 has an **Achievements** page in its menu: sign in with your
+  RetroAchievements username and password (the password is used once and never stored; DSlot
+  keeps only the token the service hands back). On the shelf, the selected DS, GBA, GB or GBC
+  game shows how many of its achievements you have, the points and a bar, and the Game page lists
+  them all with their badges. DSperate (DS) and inkdot (GB, GBC) earn them while you play: a
+  notice with the badge when one unlocks, the achievement you are working towards and any
+  challenge under way small in the bottom-left corner, progress kept in save states and the
+  resume point, and unlocks earned without a connection sent the next time the game starts.
+  Achievements are **Casual** (softcore) for now; Hardcore stays off until RetroAchievements
+  approves our emulators.
+- **Any card in TF2 is read.** The games card no longer has to be exFAT and named `DS`: any card
+  in the second slot, exFAT or FAT32, whatever its name, is mounted, and a FAT32 card's Japanese
+  titles read right.
+- **Asleep too long on battery, the device powers off.** After 60 minutes asleep on battery the
+  device powers off cleanly, with the game's resume state saved; `nib sleep off-after` changes
+  the time (`never` turns it off), and on the charger it sleeps on.
+- **Notices look the same everywhere,** one after another rather than over each other.
+- **A DS game with a big achievement set no longer quits at once** when you are signed in.
 
 The earlier alphas' notes are on their release pages:
+[0.1.0-alpha4](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha4),
 [0.1.0-alpha3](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha3),
 [0.1.0-alpha2](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha2),
 [0.1.0-alpha1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha1).

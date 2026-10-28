@@ -53,7 +53,7 @@ it; nothing on a card is ever renamed, moved or deleted.
 ## BIOS files
 
 A few systems need a BIOS file: a copy of the console's own start-up program. nibOS doesn't
-come with any; they are yours to supply, from your own console. Put them in `BIOS/` at the root
+come with any: bring your own, from your own console. Put them in `BIOS/` at the root
 of either card, named exactly as below. A system that needs one won't start without it, and says
 which file is missing and where it looked.
 
@@ -83,8 +83,7 @@ its saves.
 | `<game>.state1` … and similar | Save states, made from the game's menu. |
 
 Save states are snapshots of one emulator's memory: they can't be loaded by another emulator, or
-by a different version of the same one, which refuses rather than loading one wrongly. Battery
-saves carry over anywhere.
+by a different version of the same one. Battery saves carry over anywhere.
 
 To start a game again from the beginning, clear its resume point (DSlot's menu (X) → Game →
 Clear resume state). **Delete saves** in the same place deletes everything in the game's saves
@@ -103,9 +102,8 @@ optional.
   `Roms/` on the card in TF2. A game on both is listed once.
 - **BIOS files** are found in `BIOS/` on either card.
 - **Saves** always go in `Saves/` on NIBOS-DATA, on the nibOS card in TF1.
-- A card in TF2 can be formatted **exFAT** or **FAT32** and named anything (from 0.1.0-alpha5;
-  before, it had to be exFAT and named `DS`). On a card with several volumes, one named `DS` is
-  the one read. FAT32 names in Japanese and other scripts read right.
+- A card in TF2 can be formatted **exFAT** or **FAT32** and named anything. On a card with
+  several volumes, one named `DS` is the one read. FAT32 names in Japanese and other scripts read right.
 
 ## A card set up for slot CFW
 

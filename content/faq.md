@@ -5,24 +5,20 @@ description = "Common questions about nibOS: devices, safety, games, the stock s
 
 ## Which devices does it run on?
 
-The **Anbernic RG DS+** only, for now. nibOS is laid out so that other handhelds can be added,
-one board at a time, done thoroughly; the next ones aren't decided.
+The **Anbernic RG DS+**, for now. nibOS is built to grow to more handhelds.
 
 ## Can installing it harm my DS+?
 
-No. The RG DS+ starts from the card in its TF1 slot, and nibOS writes only to its own card:
-nothing on the device is changed. Take the nibOS card out and put the stock card back, and you
-have the stock system again.
+No. nibOS lives entirely on its own card and never touches the device. Put the stock card
+back and you're on stock again.
 
 ## Do I lose the stock system?
 
-Not if you use a separate card for nibOS, which is what the manual suggests. Writing the nibOS
-image erases the card it is written to; keep your stock card as it is.
+No. Write nibOS to a card of its own and keep your stock card as it is.
 
 ## Does it come with games?
 
-No. nibOS includes no games, no BIOS files and no artwork from any game. Play games you own, or
-the free homebrew games made for these systems. Pictures on this site use made-up games.
+No. Bring your own, or try the free homebrew made for these systems.
 
 ## Which systems does it play?
 
@@ -44,8 +40,8 @@ game from the shelf in about 2 seconds, and back in under one.
 
 ## How long does the battery last?
 
-That depends on what you play and how bright the screens are; nibOS doesn't yet publish a
-figure it has measured. Wi-Fi off, a lower brightness and sleep (close the lid) all help.
+It depends on what you play and how bright the screens are. Wi-Fi off, a lower brightness
+and closing the lid between sessions all stretch it.
 [Sleep, charging and the battery](@/manual/power.md).
 
 ## How do I update it?
@@ -68,11 +64,9 @@ settings, and DSlot's menu; a template app runs on the device as it is. See
 
 ## Was it made with AI?
 
-Yes, openly. nibOS, DSlot and the emulators were written by AI agents (Claude, in Claude Code),
-several at a time, steered by a person who decided what mattered and tested every change on a
-real RG DS+. Nothing is claimed to work that wasn't run on the device, and the history of every
-decision, with the measurements behind it, is kept in the repositories. Contributions made with
-AI are welcome under the same rules as any other ([Contributing](@/contributing.md)).
+Yes. nibOS, DSlot and the emulators were written by AI agents (Claude, in Claude Code),
+directed by one person and played on a real RG DS+ throughout. Contributions made with AI are
+welcome ([Contributing](@/contributing.md)).
 
 ## Where do I report a bug?
 

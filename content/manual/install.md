@@ -4,16 +4,14 @@ description = "Download an image, check it, write it to a microSD card and start
 weight = 1
 +++
 
-Installing nibOS means writing one image file to a microSD card and putting the card in the
-DS+. Nothing on the device itself is changed: the RG DS+ starts from whatever card is in its
-TF1 slot, so taking the nibOS card out and putting the stock card back gives you the stock
-system again.
+Installing nibOS takes one image, one microSD card and a few minutes. The DS+ itself is never
+touched: put the stock card back any time and you're on stock again.
 
 ## What you need
 
-- An **Anbernic RG DS+**. nibOS runs on no other device yet.
-- A **microSD card of 16 GB or more**. Everything on it is erased. Use a card of its own rather
-  than the one the DS+ came with, so that you can go back to stock by swapping cards.
+- An **Anbernic RG DS+**.
+- A **microSD card of 16 GB or more**. Everything on it is erased, so use a spare, not the card
+  the DS+ came with.
 - A computer with a card reader, and an imaging program.
   [Raspberry Pi Imager](https://www.raspberrypi.com/software/) works on macOS, Windows and Linux
   and writes the downloaded file as it is; `dd` works too. balenaEtcher works only with the
@@ -82,12 +80,7 @@ xzcat {{ config.extra.release.images[0].file }} | sudo dd of=/dev/sdX bs=4M conv
 
 ### With balenaEtcher
 
-nibOS checks the card about a minute after its first start and says on the shelf if it was
-written wrongly ([What to do if…](@/manual/troubleshooting.md#this-card-was-not-written-correctly)).
-
-balenaEtcher (2.1.6, on macOS) writes a `.img.xz` wrongly: it ends with "The writer process
-ended unexpectedly", and the card doesn't start. It writes an unpacked image correctly, so
-unpack it first:
+balenaEtcher can't write the `.img.xz` directly, so unpack it first:
 
 1. Unpack the `.img.xz`: on macOS, double-click it; on Windows, use [7-Zip](https://www.7-zip.org);
    on Linux, `unxz` it. You get a `.img` of about 7 GB.
@@ -142,26 +135,23 @@ authorized_keys = ["ssh-ed25519 AAAA... me@my-computer"]
 | `timezone` | The time zone, as a name from the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones): `Asia/Tokyo`, `America/New_York`. The clock is set from the internet once Wi-Fi is up. |
 | `[wifi]` `ssid`, `password` | A Wi-Fi network to join. Leave `password` out for an open network; otherwise it is 8 to 63 characters. You can also join networks later on the device ([Wi-Fi and Bluetooth](@/manual/connections.md)). |
 | `[user]` `password` | A password for the user, who is called `nibos`. With none, the console logs in by itself and `sudo` asks for nothing. With one, the console asks for it, and so does `sudo`. The DSlot edition goes to the shelf either way. |
-| `[ssh]` `authorized_keys` | Public keys allowed to log in over SSH. **SSH stays off until a key is given**; there is never password login over SSH. There is no default password anywhere. |
-| `data_card` | Not used yet in the alpha: it is read and kept, but saves stay on NIBOS-DATA whatever it says ([Games, BIOS and saves](@/manual/games.md#which-card)). |
+| `[ssh]` `authorized_keys` | Public keys allowed to log in over SSH. **SSH stays off until a key is given**, and only ever takes keys. |
+| `data_card` | Reserved for a later release. |
 
 Leave out any part you don't need. Save the file, eject the card properly, and put it in the
 DS+.
 
 **What happens to the file.** At the next start nibOS checks it. If everything in it is right,
-it applies it, keeps the results on the card's own state partition, and **erases
-`provision.toml`** (your Wi-Fi password and keys don't stay on a partition any computer can
-read). If anything is wrong, nothing in it is applied: it is renamed
-`provision.rejected-1.toml`, and `provision.error.txt` beside it says what was wrong (never the
-values). Fix it, rename it back to `provision.toml`, and start again.
+it applies it and **erases `provision.toml`**. If anything is wrong, nothing in it is applied:
+it is renamed `provision.rejected-1.toml`, and `provision.error.txt` beside it says what was
+wrong. Fix it, rename it back to `provision.toml`, and start again.
 
 To change a setting later, write a new `provision.toml` with only what changes: a part left out
 keeps what was set.
 
 ## Going back to the stock system
 
-Turn the DS+ off, take the nibOS card out of TF1 and put the stock card back. Nothing else is
-needed: nibOS doesn't write to the device, only to its own card.
+Turn the DS+ off, take the nibOS card out of TF1 and put the stock card back. That's it.
 
 To use the nibOS card for something else, write another image to it, or format it on a
 computer (on a Mac, Disk Utility's **Erase** on the whole card, not one partition).

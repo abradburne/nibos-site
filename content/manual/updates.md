@@ -12,8 +12,8 @@ system in one piece; **your games, saves and settings stay**.
 The card holds two copies of the system, **A** and **B**. One runs; the other is spare.
 
 1. An update is downloaded and written into the spare copy, while you carry on using the DS+.
-   The copy that is running is never written, so a power cut, a lost connection or a bad
-   download at any point leaves the DS+ starting what it started before.
+   The running copy is never touched, so a power cut or a dropped connection can't break
+   anything.
 2. Every piece is checked against the release's signed list, as it is written and again after,
    and an update that isn't signed with nibOS's key is refused before anything is written.
 3. You restart into the new version. If it reaches its shelf (or the console) and is still
@@ -49,8 +49,7 @@ running, and the channel (Stable or Beta).
 - **Go back to the previous version** (A twice) is offered while the other copy holds a good one.
 
 A problem (no network, the battery low, a damaged download) is said on the page, and **Try
-again** repeats the step. "No updates published yet" means there is no newer release for your
-DS+: it isn't an error. A DS+ on 0.1.0-alpha1 is offered {{ config.extra.release.version }}.
+again** repeats the step. "No updates published yet" means you're on the latest.
 
 ## From the console
 
@@ -72,11 +71,6 @@ paired Bluetooth devices, your RetroAchievements sign-in (sign in again) and wha
 `provision.toml` set. To start with default settings, delete `nibos/settings/` on the
 NIBOS-DATA drive before writing the image. If you used a `provision.toml` (for an SSH key), put it on the NIBOS drive
 again.
-
-> [!WARNING]
-> A card set up by anything older than 0.1.0-alpha1 (the test builds before the first release)
-> is **erased once**, games and saves included. Copying your `Saves/` folder to your computer
-> first is wise either way.
 
 ## Going back by hand
 

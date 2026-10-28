@@ -76,7 +76,7 @@ text = "Plug in a switched-off DS+ and it charges dark, amber light on. Battery 
 [[extra.cards]]
 icon = "shield"
 title = "Updates itself"
-text = "Signed updates over Wi-Fi into a spare copy of the system, kept only once they start; a bad one rolls back by itself. A safe mode and a watchdog besides."
+text = "Signed updates over Wi-Fi, installed while you play. If one ever fails to start, it rolls back by itself."
 
 [[extra.cards]]
 icon = "wave"
@@ -95,8 +95,6 @@ text = "Get PortMaster from the Apps page and install ports over Wi-Fi; they app
 
 +++
 
-nibOS, DSlot and the emulators were built with AI agents (Claude, in Claude Code), several at a
-time, steered by a person who decided what mattered and tested every change on a real RG DS+.
-Nothing is claimed to work that wasn't run on the device, and every decision is written down
-with the measurements behind it. [Contributing](@/contributing.md) says how to take part, with
-or without AI help.
+nibOS, DSlot and the emulators were built with AI agents (Claude, in Claude Code), directed by
+one person and played on a real RG DS+ every step of the way. Want to join in, with or without
+AI? [Contributing](@/contributing.md) says how.

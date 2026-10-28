@@ -47,7 +47,7 @@ one set of buttons and one place for saves, through **nibkit**.
 <li>
 <h3>nibOS</h3>
 <p class="meta">The operating system · GPL-3.0-or-later</p>
-<p>Mainline Linux and U-Boot, Arch Linux ARM, the hardware layer (<code>nibos-hw</code> and the <code>nib</code> command), the safe mode and recovery, and the image build. Every patch and decision is documented, with the measurements behind it.</p>
+<p>Mainline Linux and U-Boot, Arch Linux ARM, the hardware layer (<code>nibos-hw</code> and the <code>nib</code> command), the safe mode and recovery, and the image build.</p>
 <p><a href="https://github.com/abradburne/nibos">Repository</a> · <a href="https://github.com/abradburne/nibos/blob/main/docs/architecture.md">Architecture</a> · <a href="https://github.com/abradburne/nibos/blob/main/docs/roadmap.md">Roadmap</a></p>
 </li>
 </ul>

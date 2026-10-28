@@ -72,7 +72,7 @@ DSlot notices them by itself.
 ## Installing software
 
 nibOS is Arch Linux ARM, so `sudo pacman -S <package>` installs from Arch Linux ARM's
-repositories. Two things to know in the alpha:
+repositories. Worth knowing:
 
 - nibOS's own packages (its kernel, hardware layer, graphics, DSlot and the emulators) are
   built for nibOS and aren't in a repository yet. Don't replace them from Arch Linux ARM's
@@ -87,8 +87,8 @@ repositories. Two things to know in the alpha:
 
 The base edition is the same system without DSlot and the emulators: it starts into the console
 in about 5 seconds, brings the network up at every start once Wi-Fi is on, and is meant to be
-used as a small Linux computer, over SSH or with a keyboard. DSlot can't be added to it: for
-games, write the DSlot edition over it, which keeps your games and saves
+used as a small Linux computer, over SSH or with a keyboard. For games, write the DSlot
+edition over it, which keeps your games and saves
 ([Updates](@/manual/updates.md#writing-a-new-image-instead)).
 
 Building programs for nibOS, both screens, the buttons and touch: the

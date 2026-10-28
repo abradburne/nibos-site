@@ -43,9 +43,8 @@ licence of the part it changes ([Licences](@/licences.md)).
 
 ## AI-assisted contributions
 
-**They are accepted**, openly. Most of nibOS was written by AI agents, steered by a person who
-tested every change on the device, and the same way of working is open to everyone. The rules
-are the same for every change, whoever or whatever wrote it:
+**Welcome.** Most of nibOS was written with AI agents, and the same way of working is open to
+everyone. The rules are the same whoever or whatever wrote the change:
 
 - **A person is accountable** for every pull request: they have read the change, run it, and
   stand behind it.

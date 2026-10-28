@@ -67,11 +67,9 @@ downloads; to write a card, use the `.img.xz`.
   nibcase with its emulator cores (SNES, NES, Famicom Disk System, Mega Drive, Master System,
   SG-1000, Game Gear, PC Engine and PC Engine CD, PlayStation, Atari Lynx, Neo Geo Pocket,
   WonderSwan, Game & Watch), inktick (Game & Watch, a preview), Mesa for the GPU, and nibOS's
-  PortMaster support (PortMaster itself downloads on first use). Wi-Fi comes on only when you
-  turn it on.
+  PortMaster support (PortMaster itself downloads on first use).
 - **The base edition**: a console on the top screen, with SSH and Wi-Fi at boot.
-- **Not in it**: games, BIOS files, the speakers' official tuning, and anything from the stock
-  firmware.
+- **Not in it**: games and BIOS files. Bring your own.
 
 ## Release notes
 

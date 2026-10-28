@@ -17,7 +17,7 @@
       <p class="hero-note"><span class="pill">Alpha</span> {% if r.published %}{{ r.version }}, released {{ r.date }}: <a href="{{ get_url(path='@/download.md') }}#release-notes">what's new</a>.{% else %}The first alpha is being prepared.{% endif %}</p>
     </div>
     <div class="hero-device">
-      {{ <device src="shelf.png" alt="An RG DS+ running DSlot: a game's box with its play time on the top screen; three game carts over a card slot on the bottom, touch screen. The games are made up for the picture." eager={true} /> }}
+      {{ <device src="shelf.png" alt="An RG DS+ running DSlot: a game's box with its play time on the top screen; three game carts over a card slot on the bottom, touch screen." eager={true} /> }}
     </div>
   </div>
   <div class="wrap">
@@ -72,7 +72,7 @@
     <div>
       <p class="kicker">Under the shelf</p>
       <h2>Mainline, open, and yours</h2>
-      <p>No frozen vendor kernel: mainline Linux and U-Boot, with patches written to go upstream, open graphics drivers, and Arch Linux ARM's packages. Nothing in an image comes from the stock firmware, so it can be passed on, and every part is free software.</p>
+      <p>No frozen vendor kernel: mainline Linux and U-Boot, open graphics drivers, and all of Arch Linux ARM underneath. Every part is free software.</p>
       <p><a class="more" href="{{ get_url(path='@/apps.md') }}">The projects {{ <icon name="arrow" /> }}</a> &nbsp; <a class="more" href="{{ get_url(path='@/licences.md') }}">The licences {{ <icon name="arrow" /> }}</a></p>
     </div>
     <ol class="stack" reversed>
@@ -92,7 +92,7 @@
       <li><a href="{{ get_url(path='@/manual/install.md') }}"><span class="step-n">2</span><strong>Write a card</strong><span>With balenaEtcher or dd. Your stock card stays as it is.</span></a></li>
       <li><a href="{{ get_url(path='@/manual/games.md') }}"><span class="step-n">3</span><strong>Add your games</strong><span>Copy them into Roms/ and power on.</span></a></li>
     </ol>
-    <p class="small">nibOS comes with no games: play your own, or the many free homebrew games for these systems. The games in the pictures are made up.</p>
+    <p class="small">Bring your own games, or dive into the free homebrew made for these systems.</p>
   </div>
 </section>
 

@@ -7,7 +7,7 @@ page_template = "manual.html"
 +++
 
 This manual is for people who use nibOS on an **Anbernic RG DS+**: installing it, playing on
-it, and getting out of trouble. It describes the first alpha, {{ config.extra.release.version }}.
+it, and getting out of trouble. It covers {{ config.extra.release.version }}.
 
 nibOS comes in two editions, written from the same sources:
 
@@ -26,6 +26,3 @@ What a word means here:
 | NIBOS-DATA | The card's games partition: games, BIOS files, saves. It is what a computer shows when the card is in its reader. |
 | NIBOS | A small partition on the card with the licences, a README and, if you want SSH, the settings file `provision.toml`. |
 | Back, Menu | Two of the DS+'s buttons, named as on the device. In a game, Back opens the game's menu and Menu saves and goes back to the shelf. |
-
-Where you want more detail, this manual links to the projects' own documentation rather than
-repeating it.

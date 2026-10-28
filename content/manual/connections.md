@@ -4,9 +4,8 @@ description = "Turning the radios on, joining networks, pairing headphones and c
 weight = 6
 +++
 
-On a fresh card both radios are off. Each stays as you leave it, across restarts. On the DSlot
-edition, leave Wi-Fi off when you don't need it: idle, the radio costs about a quarter of what
-the whole device draws on the shelf.
+On a fresh card both radios are off. Each stays as you leave it, across restarts. Turning
+Wi-Fi off when you don't need it gives you noticeably more battery.
 
 ## Wi-Fi
 
@@ -65,9 +64,8 @@ In DSlot's menu (X), the **Bluetooth** page:
   device needs one, and connects it.
 
 **Headphones.** When Bluetooth headphones connect, the sound moves to them; the volume keys then
-set their volume. The codecs are SBC, aptX, LDAC and Opus; AAC isn't included (headphones
-use one of the others). Bluetooth audio is new in the alpha and hasn't yet been tested with real
-headphones: [tell us](@/manual/troubleshooting.md#reporting-a-bug) how yours do. In a game, the menu's **Connections** page connects
+set their volume. The codecs are SBC, aptX, LDAC and Opus. Bluetooth audio is new:
+[tell us](@/manual/troubleshooting.md#reporting-a-bug) how your headphones get on. In a game, the menu's **Connections** page connects
 or disconnects paired headphones with one press.
 
 **Controllers and keyboards** pair the same way. A Bluetooth keyboard types in the console.

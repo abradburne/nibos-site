@@ -19,8 +19,8 @@ weight = 2
 On a fresh card **Wi-Fi and Bluetooth are off**, except that Wi-Fi comes on by itself when
 `provision.toml` named a network. Turn them on in DSlot's menu, or with `nib wifi on` and
 `nib bluetooth on` in the console. Each radio then stays as you leave it, across restarts. On
-the DSlot edition the network comes up only when something needs it, to save battery; on the
-base edition it comes up at every start, because SSH is its way in.
+the DSlot edition the network comes up only when something needs it, saving battery; on the
+base edition it comes up at every start.
 
 ## Putting games on the card
 
@@ -40,9 +40,6 @@ games reads every new game once to make its cart and box; later starts are quick
 You can also copy games while nibOS runs, over the network ([The console and the base
 edition](@/manual/console.md#copying-files)), or put them on a second card in TF2; a game
 copied onto a card appears on its page about a second after the copy finishes.
-
-nibOS doesn't come with any games. Play games you own, or the many free homebrew games made
-for these systems.
 
 ## Then
 

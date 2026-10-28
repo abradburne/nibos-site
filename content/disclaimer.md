@@ -16,8 +16,7 @@ won't lose your data. You use it at your own risk.
   drain the battery, lose data, or in the worst case harm the device.
 - **Things change.** Alphas come with known problems
   ([Known issues](@/manual/known-issues.md)), and later releases may change how things work.
-- **No support is promised.** Help is given in [GitHub issues](https://github.com/abradburne/nibos/issues)
-  when there's time, but nobody owes it.
+- **Support is best-effort**, through [GitHub issues](https://github.com/abradburne/nibos/issues).
 
 As far as the law allows, nobody who makes or distributes nibOS is liable for any damage or
 loss that comes from using it. The licences each part comes under say the same in their own

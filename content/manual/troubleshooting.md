@@ -4,8 +4,7 @@ description = "When it doesn't start, freezes, or a game won't play: the safe mo
 weight = 11
 +++
 
-Problems are listed from the most common. nibOS recovers from most of them by itself; nothing
-here can harm the DS+ itself, since everything nibOS has is on its card.
+nibOS recovers from most problems by itself. For the rest, start here, most common first.
 
 ## It won't start
 
@@ -51,9 +50,7 @@ seconds to cut the power.
   copy in `BIOS/` at a card's root ([Games, BIOS and saves](@/manual/games.md#bios-files)).
 - **It comes straight back to the shelf.** The shelf says why in a notice: the emulator's own
   last line ("DSperate stopped (exit 1): launch: … ZIP NOT SUPPORTED", or where it crashed).
-  Press **Y** there to send a bug report (below); any other button closes it. On 0.1.0-alpha3
-  and earlier, a DS or GBA game that came back at once with "signal 9" and no other reason
-  was the kernel's real-time watchdog catching the emulator's start-up; 0.1.0-alpha4 fixes it.
+  Press **Y** there to send a bug report (below); any other button closes it.
 - **It says the file can't be read**, or the zip is damaged: copy the game onto the card again.
   A `.zip` must hold one game; disc games can't be zipped.
 - **It isn't on the shelf.** Check the folder ([Games, BIOS and saves](@/manual/games.md#the-folders))
@@ -78,8 +75,7 @@ restart the DS+, then [report it](#reporting-a-bug).
 ## An update went back to the old version
 
 If a new version doesn't reach its shelf in three tries, the DS+ goes back to the version it
-was running, by itself. It is working as intended; DSlot's Update page says which version it
-is on. [Report it](#reporting-a-bug), with the logs.
+was running, by itself. DSlot's Update page says which version it is on. [Report it](#reporting-a-bug), with the logs.
 
 ## Going back to the stock system
 
@@ -87,10 +83,10 @@ Turn the DS+ off and put the stock card back in TF1. Nothing else is needed.
 
 ## Reporting a bug
 
-**From the DS+:** when a game comes straight back, the notice offers **Y: send a bug report** (on 0.1.0-alpha2 the button did nothing; 0.1.0-alpha3 fixed it);
+**From the DS+:** when a game comes straight back, the notice offers **Y: send a bug report**;
 from the console, `nib bug-report send`. Either saves a copy of this start's log on the card as
-`nibos/bug-report-<date>.txt` on the NIBOS-DATA drive, with your Wi-Fi network names and
-passphrases, MAC and IP addresses and the hostname taken out, and, with Wi-Fi on, sends it to
+`nibos/bug-report-<date>.txt` on the NIBOS-DATA drive, with personal details like Wi-Fi
+details and addresses taken out, and, with Wi-Fi on, sends it to
 nibOS's bug tracker. The shelf then shows a short **report code**: quote it when you report the
 problem, and nothing else needs attaching. With no Wi-Fi the file is saved all the same; attach
 it instead. `nib bug-report` without `send` only saves the file.

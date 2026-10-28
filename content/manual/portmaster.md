@@ -10,13 +10,10 @@ ports over Wi-Fi, and DSlot lists them on its **Ports** page.
 
 ## Getting PortMaster
 
-PortMaster isn't on the card when you install nibOS: some of the files in its release can't be
-passed on in an image, so nibOS downloads it from PortMaster's own site the first time you ask
-for it.
+nibOS fetches PortMaster from its own site the first time you ask for it.
 
 1. In DSlot, go to the **Apps** page (or the **Ports** page) and choose **Get PortMaster**.
-2. nibOS asks before downloading. It turns Wi-Fi on if it is off, downloads the PortMaster
-   release it was tested with, checks it, and unpacks it.
+2. nibOS asks before downloading, turns Wi-Fi on if it is off, and sets PortMaster up.
 3. PortMaster opens. From then on the entry reads **PortMaster**, and PortMaster keeps itself up
    to date.
 
@@ -38,4 +35,3 @@ Ports keep their own saves, in their own folders.
 
 - Ports that need **RetroArch** don't start: nibOS has no RetroArch.
 - Ports that need **32-bit** libraries aren't offered: nibOS is 64-bit only.
-- PortMaster and the ports it downloads come under their own licences; nibOS includes neither.

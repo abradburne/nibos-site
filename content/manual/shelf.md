@@ -14,8 +14,6 @@ rating. Push a cart into the slot to play.
 {{ <shot src="menu.png" alt="The menu on the touch screen: Favourite, Rating, View, Sort by, Show, Game case, Sounds, Start at power-on, Power off." caption="The menu (X)." /> }}
 </div>
 
-The pictures use made-up games. With your own games and box art, the shelf shows those.
-
 ## Pages and tabs
 
 The shelf has a **page for each system** that has an emulator installed and games on a card:
@@ -46,8 +44,7 @@ system has and when you last played one, and the top screen shows the **system's
 A system card is a Top Trumps style card for a console: its maker, stats (released, launch
 price, units sold, processor, memory, screen, games) with bars comparing the systems, a short
 history, a fun fact, a photo of the console, and what is on your cards for it. Every figure
-comes from the source printed on the card; the photos are public domain or Creative Commons,
-credited on each card.
+is sourced, and every photo credited, on the card itself.
 
 The Apps page's card is about the device you are holding: its chip, memory and screens, the
 system and when it was built, the battery, the room left on each card, how long it has been on,
@@ -67,8 +64,8 @@ DSlot's menu (X) → Game → **Clear resume state**.
 ## Achievements
 
 DSlot signs in to [RetroAchievements](https://retroachievements.org) for you: menu (X) →
-**Achievements**, type your username, then **Sign in** and your password. The password is used
-once and never kept; DSlot keeps only the sign-in the service gives back. No account yet?
+**Achievements**, type your username, then **Sign in** and your password. Your password is
+never stored. No account yet?
 **Make an account** shows the sign-up page's address and a QR code for your phone.
 
 Signed in, the top screen shows the selected game's achievements: how many you have of how many,
@@ -79,9 +76,7 @@ way.
 
 **Which systems earn them:** DS (DSperate), Game Boy and Game Boy Color (inkdot), for now; more
 are coming. The shelf shows a set for other systems RetroAchievements has, GBA's included, but
-playing them doesn't earn yet. Achievements are **Casual** (softcore) for now: Hardcore stays off
-until RetroAchievements approves our emulators. What is sent to the service:
-[Privacy](@/privacy.md).
+playing them doesn't earn yet. Achievements are **Casual** (softcore) for now.
 
 ## Carts, boxes and lists
 

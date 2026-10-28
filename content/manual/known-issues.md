@@ -4,16 +4,13 @@ description = "What is unfinished in the alpha, what doesn't work yet, and what 
 weight = 12
 +++
 
-nibOS {{ config.extra.release.version }} is an **alpha**: the second version anyone outside the
-project can install. Everything on the RG DS+ works, and every change was tried on a real one,
-but it has been tried on few devices and few cards, and some things that a finished
-system has are still to come. This page says what.
+nibOS {{ config.extra.release.version }} is an **alpha**. Everything on the RG DS+ works; this
+page lists what's still to come.
 
 ## Not there yet
 
-- **Updates** are new: 0.1.0-alpha2 is the first release a device takes over the air
-  ([Updates](@/manual/updates.md)). Cards built from source (development cards) don't update
-  themselves; image cards do.
+- **Updates**: cards built from source (development cards) don't update themselves; image
+  cards do ([Updates](@/manual/updates.md)).
 - **Packages.** nibOS's own packages (kernel, hardware layer, DSlot, the emulators) aren't in a
   package repository: they come with the system and its updates, not with `pacman`, so the
   base edition can't add DSlot.
@@ -26,8 +23,7 @@ system has are still to come. This page says what.
 ## Games and emulators
 
 - **PlayStation**: most games play, but occasional frames take nearly a whole frame's time,
-  which shows as a stutter in some games. Higher internal resolution is off until that is
-  understood.
+  which shows as a stutter in some games. Higher internal resolution is off for now.
 - **Famicom Disk System**: set up, and its BIOS check tested, but not yet played with a game.
 - **DS games at a higher 3D resolution** cost more: 4x is too slow for most games, and at 2x or
   3x the heaviest scenes can fall behind, when DSperate shows every other frame and then drops
@@ -36,13 +32,9 @@ system has are still to come. This page says what.
 - **inktick** (Game & Watch) is a preview: units that use the SM5A chip (the Silver and Gold
   series and a few others) aren't supported yet. nibcase plays Game & Watch too, from `.mgw`
   files.
-- **Carts** are drawn for the DS, GBA, Game Boy, Game Boy Color, SNES, NES, Mega Drive, Game Gear
-  and Lynx; the other systems show boxes.
 - **slot CFW saves**: GBA battery saves from a slot card aren't picked up by themselves; copy
   them across ([Games, BIOS and saves](@/manual/games.md#a-card-set-up-for-slot-cfw)). Save
   states never carry over between emulators.
-- **Snes9x**, the SNES emulator core, has a non-commercial licence: the DSlot edition may not be
-  sold, or passed on as part of anything sold ([Licences](@/licences.md)).
 
 ## PortMaster
 
@@ -57,20 +49,14 @@ system has are still to come. This page says what.
 - **A complete kernel hang** (no interrupts at all) stays dark until you hold power to switch
   off; every other hang restarts the DS+ by itself. The same goes for a shutdown from
   overheating.
-- **USB around sleep**: the USB host controller is switched off while the DS+ sleeps (suspending
-  it hangs the kernel, cause unknown), so a USB device reconnects after waking.
-- **Speakers**: nibOS's own speaker tuning is set conservatively, so they are not as loud as
-  they can be. The official tuning can be imported from your own stock firmware
-  ([Sleep, charging and the battery](@/manual/power.md#the-speakers)). The amplifiers sometimes
-  fail to start at first during start-up and then recover; a start with silent speakers is
-  possible, though it hasn't been seen. A restart brings them back.
-- **Bluetooth audio** hasn't yet been tested with real headphones. SBC, aptX, LDAC and Opus; no
-  AAC.
-- **Battery life** isn't yet what it will be: the processor's deeper idle states aren't used
-  yet, and Wi-Fi's power saving is off (with it on, the DS+'s Wi-Fi drops off the network).
-  On the shelf the DS+ draws about 0.5 A. Turn Wi-Fi off when you don't need it; on a fresh
-  card it starts off.
-- **The console's touch keyboard** is new, and hasn't yet had much use on the device.
+- **USB around sleep**: the USB host port is switched off while the DS+ sleeps, so a USB device
+  reconnects after waking.
+- **Speakers**: nibOS's own speaker tuning isn't as loud as they can go. Import the official
+  tuning from your own stock firmware for more
+  ([Sleep, charging and the battery](@/manual/power.md#the-speakers)).
+- **Bluetooth audio** is new: SBC, aptX, LDAC and Opus, no AAC. Tell us how your headphones do.
+- **Battery life** will get better: the processor's deeper idle states and Wi-Fi power saving
+  are still to come. Turn Wi-Fi off when you don't need it.
 
 ## Reporting what you find
 

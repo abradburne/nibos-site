@@ -108,7 +108,7 @@ the card.
 
 1. Turn the DS+ off.
 2. Put the card in the slot marked **TF1** (TF1/INT). A second card in **TF2** is optional: it
-   can hold games, if it is exFAT and named `DS` ([Games, BIOS and saves](@/manual/games.md#which-card)).
+   can hold games: exFAT or FAT32, named anything ([Games, BIOS and saves](@/manual/games.md#which-card)).
 3. Turn it on. [First start](@/manual/first-boot.md) says what to expect.
 
 ## Optional: an SSH key (provision.toml)

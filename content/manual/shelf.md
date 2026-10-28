@@ -64,6 +64,25 @@ bottom right corner, with a **Resume** tag and when it was saved (for a DS game,
 one above the other). To start a game from the beginning instead, clear its resume point:
 DSlot's menu (X) → Game → **Clear resume state**.
 
+## Achievements
+
+DSlot signs in to [RetroAchievements](https://retroachievements.org) for you: menu (X) →
+**Achievements**, type your username, then **Sign in** and your password. The password is used
+once and never kept; DSlot keeps only the sign-in the service gives back. No account yet?
+**Make an account** shows the sign-up page's address and a QR code for your phone.
+
+Signed in, the top screen shows the selected game's achievements: how many you have of how many,
+the points, and a bar. Menu → Game → **Achievements** lists them all with their badges, on the
+top screen. While you play, the emulator shows a notice with the badge as you earn one, and,
+small in the bottom-left corner, the achievement you're working towards and any challenge under
+way.
+
+**Which systems earn them:** DS (DSperate), Game Boy and Game Boy Color (inkdot), for now; more
+are coming. The shelf shows a set for other systems RetroAchievements has, GBA's included, but
+playing them doesn't earn yet. Achievements are **Casual** (softcore) for now: Hardcore stays off
+until RetroAchievements approves our emulators. What is sent to the service:
+[Privacy](@/privacy.md).
+
 ## Carts, boxes and lists
 
 The touch screen shows a page in one of four **views**, set in the menu (X), for every page or
@@ -113,6 +132,7 @@ Sizes and every detail: [DSlot's artwork guide](https://github.com/abradburne/DS
 | **The console** (DS, GBA, …) | Every game of that system: the emulator (when more than one is installed), its options, and how the page is shown (View, Sort by, Show, Game case). |
 | **System** | How every page is shown; sounds; button repeat; the screensaver; the volume, each screen's brightness, Wi-Fi, the battery and battery protect, the speaker tuning; **Date and time** (set from the network, or by hand, and the time zone); **System info** (the device, its memory, load, temperatures, storage and battery, live); **Rescan games**; **Start at power-on**; **Power off**. |
 | **Wi-Fi**, **Bluetooth** | The radios ([Wi-Fi and Bluetooth](@/manual/connections.md)). |
+| **Achievements** | Signing in to RetroAchievements, who is signed in and their points, signing out ([Achievements](#achievements)). |
 | **Update** | System updates: the version running, checking, downloading and installing a newer one, going back ([Updates](@/manual/updates.md)). |
 
 **L / R** or a tap on a tab changes page; **Up / Down** picks a row; **Left / Right**, **A** or a

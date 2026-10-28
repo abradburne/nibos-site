@@ -6,9 +6,10 @@ weight = 5
 
 ## The folders
 
-Games go in `Roms/<folder>` on a card, one folder per system. The folders are the ones the
-DS+'s stock system uses, so a games card you already have works as it is. DSlot makes the
-folder of every system it has an emulator for, each with a `_README.txt` saying what goes in
+Games go in `Roms/<folder>`, one folder per system, on the nibOS card's NIBOS-DATA drive or on a
+second card in TF2, exFAT or FAT32, named anything ([Which card](#which-card)). The folders are
+the ones the DS+'s stock system uses, so a games card you already have works as it is. DSlot
+makes the folder of every system it has an emulator for, each with a `_README.txt` saying what goes in
 it; nothing on a card is ever renamed, moved or deleted.
 
 | System | Folder | Files | Plays in | BIOS (in `BIOS/`) |
@@ -102,9 +103,9 @@ optional.
   `Roms/` on the card in TF2. A game on both is listed once.
 - **BIOS files** are found in `BIOS/` on either card.
 - **Saves** always go in `Saves/` on NIBOS-DATA, on the nibOS card in TF1.
-- A card in TF2 must be formatted **exFAT** and named (labelled) **`DS`**; one with any other name
-  or format isn't read. To rename one, on a Mac use Disk Utility (or click its name in the
-  Finder), on Windows its Properties.
+- A card in TF2 can be formatted **exFAT** or **FAT32** and named anything (from 0.1.0-alpha5;
+  before, it had to be exFAT and named `DS`). On a card with several volumes, one named `DS` is
+  the one read. FAT32 names in Japanese and other scripts read right.
 
 ## A card set up for slot CFW
 

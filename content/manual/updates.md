@@ -34,10 +34,6 @@ An update needs Wi-Fi, and the battery at 30% or more (or the charger in).
 | Brightness, the lid setting, battery protect, an imported speaker tuning | |
 | Your password, set with `passwd` or in `provision.toml` | |
 
-> [!NOTE]
-> 0.1.0-alpha1's updater didn't carry the password over; 0.1.0-alpha2 takes it from the previous
-> version on its first start, so a password set on alpha1 is there after the update.
-
 ## From DSlot
 
 Press **X** for the menu and go to the **Update** page. It shows the version and edition
@@ -69,9 +65,12 @@ nib update rollback    # back to the previous version
 
 You can also update by writing the newer image to the card, as you did to
 [install](@/manual/install.md). On a card set up by **nibOS 0.1.0-alpha1 or later** this keeps
-the NIBOS-DATA partition, so your games and saves stay. Everything else is reset: the system's
-settings, the Wi-Fi networks you joined, your paired Bluetooth devices, and what
-`provision.toml` set. If you used a `provision.toml` (for an SSH key), put it on the NIBOS drive
+the NIBOS-DATA partition, so your games and saves stay, and from **0.1.0-alpha6** your settings,
+play times and favourites too: nibOS keeps a copy of them on NIBOS-DATA (`nibos/settings/`) and
+puts it back the first time the new card starts. Reset are the Wi-Fi networks you joined, your
+paired Bluetooth devices, your RetroAchievements sign-in (sign in again) and what
+`provision.toml` set. To start with default settings, delete `nibos/settings/` on the
+NIBOS-DATA drive before writing the image. If you used a `provision.toml` (for an SSH key), put it on the NIBOS drive
 again.
 
 > [!WARNING]

@@ -68,14 +68,14 @@ restart the DS+, then [report it](#reporting-a-bug).
 ## Wi-Fi doesn't connect
 
 - Is Wi-Fi on? DSlot's menu → Wi-Fi, or its icon in the status bar.
-- Check the password: on the Wi-Fi page, forget the network (Y twice) and join it again.
+- Check the password: in Network → Wi-Fi, forget the network (Y twice) and join it again.
 - `provision.toml` not applied? Look for `provision.error.txt` on the NIBOS drive: it says why
   ([Installing](@/manual/install.md#optional-an-ssh-key-provision-toml)).
 
 ## An update went back to the old version
 
 If a new version doesn't reach its shelf in three tries, the DS+ goes back to the version it
-was running, by itself. DSlot's Update page says which version it is on. [Report it](#reporting-a-bug), with the logs.
+was running, by itself. DSlot's System → Update says which version it is on. [Report it](#reporting-a-bug), with the logs.
 
 ## Going back to the stock system
 

@@ -1,10 +1,10 @@
 +++
 title = "Known issues"
-description = "What is unfinished in the alpha, what doesn't work yet, and what to expect."
+description = "What is unfinished in the beta, what doesn't work yet, and what to expect."
 weight = 12
 +++
 
-nibOS {{ config.extra.release.version }} is an **alpha**. Everything on the RG DS+ works; this
+nibOS {{ config.extra.release.version }} is a **beta**. Everything on the RG DS+ works; this
 page lists what's still to come.
 
 ## Not there yet

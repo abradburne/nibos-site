@@ -74,9 +74,12 @@ top screen. While you play, the emulator shows a notice with the badge as you ea
 small in the bottom-left corner, the achievement you're working towards and any challenge under
 way.
 
-**Which systems earn them:** DS (DSperate), Game Boy and Game Boy Color (inkdot), for now; more
-are coming. The shelf shows a set for other systems RetroAchievements has, GBA's included, but
-playing them doesn't earn yet. Achievements are **Casual** (softcore) for now.
+**Which systems earn them:** DS and GBA (DSperate), Game Boy and Game Boy Color (inkdot), and
+SNES, NES, Mega Drive, Game Gear, Atari Lynx and PlayStation (nibcase). The shelf shows the set
+of any game RetroAchievements has. Achievements are **Casual** (softcore).
+
+**Earned achievements**, on the Achievements page, lists every achievement you have unlocked,
+the latest first, with its game and points.
 
 ## Carts, boxes and lists
 
@@ -90,7 +93,8 @@ one console:
 | List | Names only. |
 | List with covers | Names with a small box beside each. |
 
-The grid and the lists scroll with momentum under a finger: flick, and touch to stop.
+The carts, the grid and the lists scroll with momentum under a finger: flick, and touch to
+stop. Flicked carts settle on a cart.
 
 Carts are drawn for the DS, GBA, Game Boy, Game Boy Color, SNES, NES, Mega Drive, Game Gear and
 Atari Lynx; the other systems show boxes. With no artwork of your own, every cart gets a
@@ -119,19 +123,19 @@ Sizes and every detail: [DSlot's artwork guide](https://github.com/abradburne/DS
 
 ## The menu
 
-**X** opens the menu on the touch screen. It has a page for each level of settings:
+**X** opens the menu on the touch screen. It has a tab for each level of settings, and the
+longer ones come in sections, in a row under the tabs:
 
-| Page | Holds |
+| Tab | Holds |
 |---|---|
 | **Game** | The selected game: favourite and rating; the emulator it starts in, and that emulator's options for it; **Clear resume state**; **Delete saves** (each asks first: A, then A again). |
-| **The console** (DS, GBA, …) | Every game of that system: the emulator (when more than one is installed), its options, and how the page is shown (View, Sort by, Show, Game case). |
-| **System** | How every page is shown; sounds; button repeat; the screensaver; the volume, each screen's brightness, Wi-Fi, the battery and battery protect, the speaker tuning; **Date and time** (set from the network, or by hand, and the time zone); **System info** (the device, its memory, load, temperatures, storage and battery, live); **Rescan games**; **Start at power-on**; **Power off**. |
-| **Wi-Fi**, **Bluetooth** | The radios ([Wi-Fi and Bluetooth](@/manual/connections.md)). |
-| **Achievements** | Signing in to RetroAchievements, who is signed in and their points, signing out ([Achievements](#achievements)). |
-| **Update** | System updates: the version running, checking, downloading and installing a newer one, going back ([Updates](@/manual/updates.md)). |
+| **The console** (DS, GBA, …) | Every game of that system. **Emulator**: the emulator (when more than one is installed) and its options. **Shelf**: how the page is shown (View, Sort by, Show, Game case). |
+| **System** | **Shelf**: how every page is shown, button repeat, **Rescan games**. **Screen**: each screen's brightness, the screensaver. **Sound**: the volume, sounds, the speaker tuning. **Power**: the battery and battery protect, **Start at power-on**, **Power off when asleep**, **Power off**. **Time**: the clock, the date, time and time zone (from the network, or by hand). **About**: the device, its memory, load, temperatures, storage and battery, live. **Update**: system updates ([Updates](@/manual/updates.md)). |
+| **Network** | **Wi-Fi**, **Bluetooth** and **Network info** ([Wi-Fi and Bluetooth](@/manual/connections.md)). |
+| **Achievements** | Signing in to RetroAchievements, who is signed in and their points, **Earned achievements**, signing out ([Achievements](#achievements)). |
 
-**L / R** or a tap on a tab changes page; **Up / Down** picks a row; **Left / Right**, **A** or a
-tap changes it; **B** closes the menu.
+**L / R** or a tap on a tab changes tab; **L2 / R2** or a tap on a section changes section;
+**Up / Down** picks a row; **Left / Right**, **A** or a tap changes it; **B** closes the menu.
 
 **How settings inherit.** A setting for a game wins over its console's, which wins over the
 system's. A row that isn't set at its level shows where its value comes from, muted: *Use GBA

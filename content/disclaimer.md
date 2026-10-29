@@ -1,9 +1,9 @@
 +++
 title = "Disclaimer"
-description = "nibOS is alpha software, offered as it is, with no promises: what that means for you."
+description = "nibOS is beta software, offered as it is, with no promises: what that means for you."
 +++
 
-**nibOS is alpha software, offered as it is, with no warranty of any kind.** It is made in the
+**nibOS is beta software, offered as it is, with no warranty of any kind.** It is made in the
 open and given away; nobody promises that it works, that it is fit for any purpose, or that it
 won't lose your data. You use it at your own risk.
 
@@ -14,7 +14,7 @@ won't lose your data. You use it at your own risk.
 - **It runs your device in ways its maker didn't.** It drives the screens, the charging, the
   sound and the radios with its own software. It is tested on our own devices, but a fault could
   drain the battery, lose data, or in the worst case harm the device.
-- **Things change.** Alphas come with known problems
+- **Things change.** Betas come with known problems
   ([Known issues](@/manual/known-issues.md)), and later releases may change how things work.
 - **Support is best-effort**, through [GitHub issues](https://github.com/abradburne/nibos/issues).
 

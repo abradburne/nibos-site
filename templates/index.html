@@ -14,7 +14,7 @@
         <a class="button primary big" href="{{ get_url(path='@/download.md') }}">{{ <icon name="download" /> }}Download {{ r.version }}</a>
         <a class="button ghost big" href="{{ get_url(path='@/manual/install.md') }}">{{ <icon name="book" /> }}How to install</a>
       </p>
-      <p class="hero-note"><span class="pill">Alpha</span> {% if r.published %}{{ r.version }}, released {{ r.date }}: <a href="{{ get_url(path='@/download.md') }}#release-notes">what's new</a>.{% else %}The first alpha is being prepared.{% endif %}</p>
+      <p class="hero-note"><span class="pill">Beta</span> {% if r.published %}{{ r.version }}, released {{ r.date }}: <a href="{{ get_url(path='@/download.md') }}#release-notes">what's new</a>.{% else %}The first alpha is being prepared.{% endif %}</p>
     </div>
     <div class="hero-device">
       {{ <device src="shelf.png" alt="An RG DS+ running DSlot: a game's box with its play time on the top screen; three game carts over a card slot on the bottom, touch screen." eager={true} /> }}

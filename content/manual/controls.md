@@ -105,7 +105,7 @@ Lynx, PlayStation and Game & Watch play in nibcase.
 
 | Press | Does |
 |---|---|
-| D-pad, face buttons, L, R, Select, Start | The console's own pad. The face buttons follow their printed letters. |
+| D-pad, face buttons, L, R, Select, Start | The console's own pad. The face buttons follow their printed letters; on the Mega Drive, they are laid out as its pad: Y, B and A are A, B and C, X, L and R are X, Y and Z, and Select is Mode. |
 | The stick | The D-pad (a setting), or a PlayStation DualShock's left stick. |
 | Menu + Select | Fast-forward while held. |
 

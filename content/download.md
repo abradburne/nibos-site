@@ -11,8 +11,9 @@ description = "nibOS images for the Anbernic RG DS+, how to check them, the rele
 
 ## nibOS {{ r.version }}
 
-The sixth alpha, released {{ r.date }}. For the **Anbernic RG DS+** only. A DS+ on
-0.1.0-alpha1 to alpha5 can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
+The first beta, released {{ r.date }}: nibOS 0.1.0's features are all in, and the betas from
+here to 0.1.0 bring fixes. For the **Anbernic RG DS+** only. A DS+ on 0.1.0-alpha1 to alpha6
+can take it as an [update](@/manual/updates.md) instead of a new card. Write an image
 to a microSD card of 16 GB or more with Raspberry Pi Imager or `dd`, or with balenaEtcher
 once the image is unpacked: [Installing](@/manual/install.md) has every step. Both editions have the same system
 underneath, and either can be written over the other.
@@ -73,20 +74,25 @@ downloads; to write a card, use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-alpha5:
+What changed since 0.1.0-alpha6:
 
-- **Writing a new image keeps your settings.** Games and saves were already kept; now DSlot's and
-  each emulator's settings, play times and favourites are too. nibOS keeps a copy on the
-  NIBOS-DATA drive (`nibos/settings/`) and puts it back the first time a newly written card
-  starts. Sign in to RetroAchievements again afterwards: the sign-in isn't copied.
-- **Which systems earn achievements,** on DSlot's Achievements page: DS, Game Boy and Game Boy
-  Color for now, with more systems coming.
-- **Wi-Fi comes back promptly after an update,** rather than half a minute later with its switch
-  showing off.
-- **The buttons can't go missing** if nibOS's input service restarts: DSlot picks the gamepad up
-  again at once.
+- **RetroAchievements on seven more systems.** Game Boy Advance in DSperate, and SNES, NES, Mega
+  Drive, Game Gear, Atari Lynx and PlayStation in nibcase, earn achievements (Casual), joining
+  DS, Game Boy and Game Boy Color. Sign in once from DSlot's Achievements page and play.
+- **DSlot 0.5.0.** The menu's longer pages come in sections under the tabs, moved through with
+  L2 / R2 or a tap; Wi-Fi and Bluetooth share one **Network** tab. Carts flicked on the shelf
+  glide on and settle on a cart. **Earned achievements** lists everything you have unlocked,
+  the latest first.
+- **Choose when a sleeping device powers off:** DSlot's menu → System → Power → **Power off when
+  asleep**. With the lid closed, the DS+ powers off at that time and stays off.
+- **Deep sleep draws less:** 49 mA asleep, from 52 mA.
+- **Mega Drive buttons match the console's pad:** Y, B and A are A, B and C; X, L and R are X, Y
+  and Z; Select is Mode.
+- **Updated systems use their whole partition:** a DS+ updated from an alpha gets 1.3 GB back on
+  its first start of this release.
 
-The earlier alphas' notes are on their release pages:
+The alphas' notes are on their release pages:
+[0.1.0-alpha6](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha6),
 [0.1.0-alpha5](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha5),
 [0.1.0-alpha4](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha4),
 [0.1.0-alpha3](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha3),
@@ -115,12 +121,12 @@ images, and for at least three years after this release was last offered:
 | Part | Source |
 |---|---|
 | nibOS: kernel and U-Boot patches, device tree, hardware layer, tools | [abradburne/nibos](https://github.com/abradburne/nibos/tree/{{ r.tag }}) at `{{ r.tag }}` |
-| DSlot | [abradburne/DSlot](https://github.com/abradburne/DSlot/tree/e224fc5) at `e224fc5` |
-| DSperate | [abradburne/DSperate](https://github.com/abradburne/DSperate/tree/7c88c8f) at `7c88c8f` |
-| inkdot | [abradburne/inkdot](https://github.com/abradburne/inkdot/tree/ba0f50c) at `ba0f50c` |
-| nibcase | [abradburne/nibcase](https://github.com/abradburne/nibcase) |
-| inktick | [abradburne/inktick](https://github.com/abradburne/inktick) |
-| nibkit | [abradburne/nibkit](https://github.com/abradburne/nibkit/tree/v0.1.1) at `v0.1.1` |
+| DSlot | [abradburne/DSlot](https://github.com/abradburne/DSlot/tree/v0.5.0) at `v0.5.0` |
+| DSperate | [abradburne/DSperate](https://github.com/abradburne/DSperate/tree/00f759d) at `00f759d` |
+| inkdot | [abradburne/inkdot](https://github.com/abradburne/inkdot/tree/1ecf49f) at `1ecf49f` |
+| nibcase | [abradburne/nibcase](https://github.com/abradburne/nibcase/tree/afcbf36) at `afcbf36` |
+| inktick | [abradburne/inktick](https://github.com/abradburne/inktick/tree/9ad1e00) at `9ad1e00` |
+| nibkit | [abradburne/nibkit](https://github.com/abradburne/nibkit), at the tags each project pins (DSlot: `v0.3.0`) |
 | Arch Linux ARM packages | The source packages of the GPL and LGPL packages in `packages.txt`, attached to the [release]({{ r.url }}) |
 
 The kernel is mainline Linux at `0fcb05b` with the patches in nibOS's `kernel/`,

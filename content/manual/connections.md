@@ -9,8 +9,8 @@ Wi-Fi off when you don't need it gives you noticeably more battery.
 
 ## Wi-Fi
 
-In DSlot, press **X** for the menu and go to the **Wi-Fi** page (or tap the Wi-Fi icon in the
-status bar):
+In DSlot, press **X** for the menu and go to the **Network** tab's **Wi-Fi** section (or tap
+the Wi-Fi icon in the status bar):
 
 - **Wi-Fi**: the switch.
 - The network you are on.
@@ -41,20 +41,20 @@ After sleep, Wi-Fi reconnects about 2 seconds after the DS+ wakes.
 
 ### Network info
 
-The Wi-Fi page shows your address (**Address**) under the network you are on. For the rest,
-choose **Network info** (or press **Y** on the Wi-Fi page): whether Wi-Fi is on and connected,
+The Wi-Fi section shows your address (**Address**) under the network you are on. For the rest,
+go to the **Network info** section (R2, a tap, or **Y** in Wi-Fi): whether Wi-Fi is on and connected,
 the network and its signal, the address, gateway and DNS servers, the device's name on the
 network (`nibos.local`, what to `ssh` to), the Wi-Fi MAC address, and whether the internet,
 nibOS's update server and its bug tracker can be reached ("Reachable", "No route" or "DNS
-failed"). It updates as you watch; **A** runs the checks again, **B** goes back. When asking for
-help with a connection or a bug report that won't send, this is the page to read out.
+failed"). It updates as you watch; **A** runs the checks again. When asking for help with a
+connection or a bug report that won't send, this is the section to read out.
 
 In a game, the menu's **Connections** page turns Wi-Fi and Bluetooth on or off; choosing a
 network is in DSlot.
 
 ## Bluetooth
 
-In DSlot's menu (X), the **Bluetooth** page:
+In DSlot's menu (X), the **Network** tab's **Bluetooth** section:
 
 - **Bluetooth**: the switch.
 - Your paired devices (headphones, controllers, keyboards), with their battery where they

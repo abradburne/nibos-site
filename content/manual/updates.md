@@ -36,15 +36,15 @@ An update needs Wi-Fi, and the battery at 30% or more (or the charger in).
 
 ## From DSlot
 
-Press **X** for the menu and go to the **Update** page. It shows the version and edition
-running, and the channel (Stable or Beta).
+Press **X** for the menu and go to **System**, then its **Update** section (the last one). It
+shows the version and edition running, and the channel (Stable or Beta).
 
 - **Update** checks for a newer version. If there is one, the row reads **Download (N MB)** and
   the line above says which version; **What's new** shows its notes.
 - The download runs in the background: the shelf and games carry on. **A** pauses it and
   resumes it.
 - When it is in, **Restart to update** (A, then A again) restarts into it.
-- After the update, DSlot opens on the Update page once, saying "Updated to nibOS …", or, if the
+- After the update, DSlot opens on System → Update once, saying "Updated to nibOS …", or, if the
   new version didn't start and the DS+ went back, which version it is on.
 - **Go back to the previous version** (A twice) is offered while the other copy holds a good one.
 

@@ -11,7 +11,9 @@ weight = 8
 - **Open the lid**, or **press power**: it wakes. Wi-Fi reconnects about 2 seconds later. The
   press that wakes it does nothing else.
 
-For days away, power it off.
+Asleep on battery for an hour, the DS+ saves the game and powers off, so the battery lasts; on
+the charger it sleeps on. DSlot's menu → System → Power → **Power off when asleep** sets how
+long, from 15 minutes to a day, or Never (`nib sleep off-after` over SSH).
 
 ## The power menu
 

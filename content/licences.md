@@ -1,6 +1,6 @@
 +++
 title = "Licences"
-description = "Which licence each part of nibOS is under, and what that means for you."
+description = "Which licence each part of nibOS, and of the projects built on it, is under, and what that means for you."
 +++
 
 Everything nibOS's projects wrote is free software: you may use it, study it, change it and pass
@@ -33,8 +33,8 @@ anything, with the copyright notice kept.
 | The libretro cores nibcase plays | Each its own: GPL-2.0, GPL-3.0 or Zlib, except **Snes9x** (below) |
 | nibOS's PortMaster profile | MIT, PortMaster's own licence |
 
-**Snes9x**, the SNES core, is under its own **non-commercial** licence, so the DSlot edition
-may not be sold, or passed on as part of anything sold. The base edition doesn't include it.
+**Snes9x**, the SNES core, is under its own **non-commercial** licence, so DSlot's image may
+not be sold, or passed on as part of anything sold. nibOS's image doesn't include it.
 
 ## Firmware
 

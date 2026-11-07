@@ -1,25 +1,26 @@
 +++
 title = "Sleep, charging and the battery"
-description = "Sleep and wake, the power menu, charging while off, the LEDs, battery protect and brightness."
-weight = 8
+description = "Sleep and wake, powering off, charging while off, the LEDs, battery protect, brightness and the speakers."
+weight = 6
 +++
 
 ## Sleep
 
-- **Close the lid**, or **tap power**: the DS+ sleeps (suspend to RAM). A game in progress is
-  held where it is.
+- **Close the lid**, or **tap power**: the DS+ sleeps (suspend to RAM). What is running is held
+  where it is.
 - **Open the lid**, or **press power**: it wakes. Wi-Fi reconnects about 2 seconds later. The
   press that wakes it does nothing else.
 
-Asleep on battery for an hour, the DS+ saves the game and powers off, so the battery lasts; on
-the charger it sleeps on. DSlot's menu → System → Power → **Power off when asleep** sets how
-long, from 15 minutes to a day, or Never (`nib sleep off-after` over SSH).
+Asleep on battery for an hour, the DS+ powers off, so the battery lasts; on the charger it
+sleeps on. `nib sleep` shows how long; `sudo nib sleep off-after 15` sets it in minutes, and
+`never` sleeps until woken. `nib lid ignore` stops the lid sleeping the DS+ (`nib lid sleep`
+puts it back).
 
-## The power menu
+## Powering off
 
-**Hold power for a second**: Sleep, Restart, Power off, Cancel. During a game, the game is saved
-and put away first; Cancel carries on with it, and so does waking from Sleep. In DSlot, its menu
-(X) → System → **Power off** does the same.
+**Hold power for a second** to power off cleanly, or `sudo poweroff` (`sudo reboot` to
+restart). Holding it for about 10 seconds cuts the power without saving anything: only for a
+DS+ that doesn't answer.
 
 At power-off and restart, a goodbye picture stays on screen until the power goes.
 
@@ -39,22 +40,21 @@ off again.
 
 ## The battery
 
-DSlot's status bar shows the charge, with a bolt or a plug while charging. DSlot's menu (X) → System
-shows it too, with what the battery is doing: charging, with an estimate of the time to full;
-holding for battery protect; or full.
+`nib battery` shows the charge, what the battery is doing (charging, holding for battery
+protect, or full) and the battery protect setting.
 
 **Battery protect** stops charging at about 80% and starts again at 75%, so a DS+ left on its
-charger ages its battery more slowly. Turn it on in DSlot's menu (System → Battery protect), or
-in the console with `nib battery protect on`. `nib battery` shows the charge and the setting.
+charger ages its battery more slowly: `nib battery protect on` (or `off`).
 
-Long, demanding sessions (3D DS games at higher resolution) warm the DS+ and drain the battery
-faster; charging while playing them warms it further.
+Long, demanding work (compiling, the GPU flat out) warms the DS+ and drains the battery faster;
+charging at the same time warms it further.
 
 ## Brightness and volume
 
 - **Menu + Volume up / down**: both screens' brightness, from anywhere, in steps of 5%.
-- Each screen has its own level: DSlot's menu → System → Top screen, Bottom screen, or
-  `nib brightness top 40` in the console. The lowest level is dim, never off.
+- Each screen has its own level: `nib brightness` shows both, `nib brightness top 40` sets one
+  (`bottom`, `all`). The lowest level is dim, never off. **Menu + X** in the console blanks the
+  keyboard's screen.
 - **Volume up / down**: the volume of whatever is playing (speakers, wired or Bluetooth
   headphones), in steps of 5%.
 
@@ -63,7 +63,12 @@ Brightness is kept across restarts.
 ## The speakers
 
 nibOS ships its own speaker tuning. If you have the stock firmware, you can import its
-official tuning for more volume: DSlot's menu → System → **Import official tuning** reads it from a stock card in
-TF2 (or a stock firmware image in `Roms`), which can take a few minutes. It applies at the next
-restart, which the page then offers. In the console, `sudo nib audio import-tuning` does the
-same. Headphones don't need either.
+official tuning for more volume, from a stock card in TF2 or a stock firmware image:
+
+```sh
+nib audio                          # which tuning the speakers use
+sudo nib audio import-tuning       # the official one, from your own stock firmware
+sudo nib audio tuning nibos        # back to nibOS's
+```
+
+It can take a few minutes, and applies at the next restart. Headphones don't need either.

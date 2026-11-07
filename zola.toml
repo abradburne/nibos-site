@@ -2,7 +2,7 @@
 # The site's address, also in static/CNAME (README.md, "Publishing").
 base_url = "https://nibos.alanb.dev"
 title = "nibOS"
-description = "A Linux system of its own for the Anbernic RG DS+: mainline Linux and U-Boot, Arch Linux ARM, and a game shelf on both screens."
+description = "nibOS: Arch Linux for the Anbernic RG DS+, on mainline Linux and U-Boot, with a hardware layer for both screens, the buttons, sound, sleep and charging."
 default_language = "en"
 
 compile_sass = false
@@ -30,14 +30,16 @@ internal_level = "error"
 external_level = "warn"
 
 [extra]
-# The GitHub account the footer's source links are under, and nibOS's repository (the header's
-# GitHub mark).
+# The GitHub account the footer's source links are under, nibOS's repository (the header's
+# GitHub mark), and DSlot's site: the game system built on nibOS, with its own download.
 github = "https://github.com/abradburne"
 repo = "https://github.com/abradburne/nibos"
+dslot_site = "https://dslot.alanb.dev"
 
 # The release the download page offers. Everything about a release is here, so a new one is
 # one edit: the version, the date, the commit, the files with their sizes and SHA-256 (from the
 # release's SHA256SUMS), and the update key. `published = false` turns the download buttons off.
+# The same release's DSlot image is offered on DSlot's site (dslot-site), not here.
 [extra.release]
 published = true
 version = "0.1.0-beta1"
@@ -50,15 +52,9 @@ key_id = "41B02B0D6ED49D26"
 public_key = "RWQmndRuDSuwQVWE+U7OduA6M/9ibhJbai63nHTWlvvpVrLZ2OuF3h6k"
 
 [[extra.release.images]]
-edition = "DSlot edition"
-summary = "Boots to the DSlot game shelf on both screens, with the emulators. For playing."
-file = "nibos-0.1.0-beta1-rgds-dslot.img.xz"
-size = "264 MiB"
-sha256 = "4ecb810b96abd884e73991b63699ca0f29e13e268d6bfa62a4dd109dc685bca3"
-
-[[extra.release.images]]
-edition = "Base edition"
-summary = "Boots to a console on the top screen, with a touch keyboard on the bottom one. For using the DS+ as a small Linux computer."
-file = "nibos-0.1.0-beta1-rgds.img.xz"
+edition = "nibOS for the RG DS+"
+badge = "Linux console"
+summary = "Boots to a console on the top screen, with a touch keyboard on the bottom one, and Wi-Fi and SSH at boot. For using the DS+ as a small Linux computer, and building on it."
+file = "nibos-0.1.0-beta1-rg-ds-plus.img.xz"
 size = "266 MiB"
 sha256 = "0363982141b1a2898e90e0bdf7453a5a2686575193e98a1201624542d574885a"

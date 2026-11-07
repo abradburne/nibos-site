@@ -1,6 +1,6 @@
 +++
 title = "Installing"
-description = "Download an image, check it, write it to a microSD card and start the DS+; and, for SSH, provision.toml."
+description = "Download the image, check it, write it to a microSD card, give it your SSH key and Wi-Fi in provision.toml, and start the DS+."
 weight = 1
 +++
 
@@ -19,21 +19,16 @@ touched: put the stock card back any time and you're on stock again.
 
 ## 1. Download
 
-From the [download page](@/download.md), pick an edition:
-
-- **DSlot edition** (`{{ config.extra.release.images[0].file }}`): starts into the game shelf.
-  Choose this to play.
-- **Base edition** (`{{ config.extra.release.images[1].file }}`): starts into a Linux console. Choose this to use the DS+ as a
-  small computer ([The console and the base edition](@/manual/console.md)).
-
-The file is compressed (`.xz`). Raspberry Pi Imager and `dd` write it as it is; for
+From the [download page](@/download.md), download
+`{{ config.extra.release.images[0].file }}`. (To play games, you want
+[DSlot's image]({{ config.extra.dslot_site }}/download/) instead.) The file is compressed (`.xz`). Raspberry Pi Imager and `dd` write it as it is; for
 balenaEtcher, unpack it first.
 
 ## 2. Check the download
 
 Each image has a SHA-256 checksum on the download page and in the release's `SHA256SUMS`. A
 matching checksum means the file arrived whole and is the one that was published. In a
-terminal, in the folder the file is in (for the base edition, use its file name):
+terminal, in the folder the file is in:
 
 | On | Command |
 |---|---|
@@ -63,8 +58,7 @@ the file again; don't write a file that doesn't match.
 
 Find the card's device name first, and be certain of it: `dd` writes wherever it is told.
 
-The commands use the DSlot edition's file; for the base edition, use its name. On macOS,
-`diskutil list` shows the card as `/dev/diskN` (check the size), then:
+On macOS, `diskutil list` shows the card as `/dev/diskN` (check the size), then:
 
 ```sh
 diskutil unmountDisk /dev/diskN
@@ -101,15 +95,16 @@ the card.
 
 1. Turn the DS+ off.
 2. Put the card in the slot marked **TF1** (TF1/INT). A second card in **TF2** is optional: it
-   can hold games: exFAT or FAT32, named anything ([Games, BIOS and saves](@/manual/games.md#which-card)).
+   is mounted at `/mnt/ds`: exFAT or FAT32, named anything.
 3. Turn it on. [First start](@/manual/first-boot.md) says what to expect.
 
 ## Optional: an SSH key (provision.toml)
 
-You need this only to **log in to the DS+ from a computer over SSH**: SSH stays off until the
-device has your public key, and this file is how you give it one. Everything else can be
-done on the DS+ itself: join Wi-Fi in DSlot's menu ([Wi-Fi and Bluetooth](@/manual/connections.md)),
-and set a password with `passwd` in the console.
+**Do this before the first start if you mean to use the DS+ from a computer.** SSH stays off
+until the device has your public key, and this file is how you give it one; it can also name
+your Wi-Fi network, so the DS+ is on the network from its first start. Everything in it can
+be done on the DS+ itself too, in the console: `iwctl` for Wi-Fi
+([Wi-Fi and Bluetooth](@/manual/connections.md)), `passwd` for a password.
 
 Before you start the DS+, on the **NIBOS** drive, copy `provision.toml.example` to
 `provision.toml`, in the same place, and open it in a text editor. Every line starting with `#`
@@ -134,7 +129,7 @@ authorized_keys = ["ssh-ed25519 AAAA... me@my-computer"]
 |---|---|
 | `timezone` | The time zone, as a name from the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones): `Asia/Tokyo`, `America/New_York`. The clock is set from the internet once Wi-Fi is up. |
 | `[wifi]` `ssid`, `password` | A Wi-Fi network to join. Leave `password` out for an open network; otherwise it is 8 to 63 characters. You can also join networks later on the device ([Wi-Fi and Bluetooth](@/manual/connections.md)). |
-| `[user]` `password` | A password for the user, who is called `nibos`. With none, the console logs in by itself and `sudo` asks for nothing. With one, the console asks for it, and so does `sudo`. The DSlot edition goes to the shelf either way. |
+| `[user]` `password` | A password for the user, who is called `nibos`. With none, the console logs in by itself and `sudo` asks for nothing. With one, the console asks for it, and so does `sudo`. |
 | `[ssh]` `authorized_keys` | Public keys allowed to log in over SSH. **SSH stays off until a key is given**, and only ever takes keys. |
 | `data_card` | Reserved for a later release. |
 

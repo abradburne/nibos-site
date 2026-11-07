@@ -9,8 +9,8 @@ won't lose your data. You use it at your own risk.
 
 ## In particular
 
-- **Writing an image erases the card.** Back up anything on it first. An update keeps your games
-  and saves, but keep your own copy of anything that matters, saves included.
+- **Writing an image erases the card.** Back up anything on it first. An update keeps your home folder
+  and data, but keep your own copy of anything that matters.
 - **It runs your device in ways its maker didn't.** It drives the screens, the charging, the
   sound and the radios with its own software. It is tested on our own devices, but a fault could
   drain the battery, lose data, or in the worst case harm the device.

@@ -21,6 +21,26 @@
 </figure>
 {% endcomponent device %}
 
+{#- The RG DS+ drawn in CSS with nibOS's console: `text` on the top screen (as typed, newlines
+    kept), the touch keyboard on the bottom one. An illustration, not a capture: the alt says so. -#}
+{% component console(text: string, alt: string, size: string = "") %}
+<figure class="ds {{ size }}" role="img" aria-label="{{ alt }}">
+  <div class="ds-lid">
+    <div class="ds-screen ds-term"><pre>{{ text }}<span class="ds-cursor"></span></pre></div>
+  </div>
+  <div class="ds-hinge" aria-hidden="true"></div>
+  <div class="ds-base" aria-hidden="true">
+    <span class="ds-dpad"></span>
+    <div class="ds-screen ds-keys">
+      {%- for row in [["Esc", "^C", "^D", "^Z", "^L", "Home", "End"], ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"], ["a", "s", "d", "f", "g", "h", "j", "k", "l", "⌫"], ["⇧", "z", "x", "c", "v", "b", "n", "m", "-", "/"], ["Ctrl", "Alt", " ", "Fn", "⏎"]] %}
+      <div>{% for k in row %}<i{% if k == " " %} class="space"{% elif k | length > 2 %} class="wide"{% endif %}>{{ k }}</i>{% endfor %}</div>
+      {%- endfor %}
+    </div>
+    <span class="ds-abxy"><i></i><i></i><i></i><i></i></span>
+  </div>
+</figure>
+{% endcomponent console %}
+
 {#- Line icons, drawn to a 24-unit grid with the text's colour. -#}
 {% component icon(name: string) %}
 <svg class="icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -42,7 +62,7 @@
 <div class="images">
 {%- for i in release.images %}
   <section class="image-card{% if loop.first %} featured{% endif %}">
-    {%- if loop.first %}<p class="badge">For playing</p>{% else %}<p class="badge quiet">For tinkering</p>{% endif %}
+    {%- if i.badge %}<p class="badge{% if not loop.first %} quiet{% endif %}">{{ i.badge }}</p>{% endif %}
     <h3>{{ i.edition }}</h3>
     <p>{{ i.summary }}</p>
     <dl class="file-facts">

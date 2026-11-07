@@ -1,7 +1,20 @@
 +++
 title = "Questions"
-description = "Common questions about nibOS: devices, safety, games, the stock system, updates and AI."
+description = "Common questions about nibOS: what it is, DSlot, devices, safety, the stock system, updates, software and AI."
 +++
+
+## What is nibOS?
+
+A Linux system of its own for the **Anbernic RG DS+**: mainline Linux and U-Boot, Arch Linux
+ARM, and a hardware layer that makes the DS+'s two screens, buttons, sound, sleep and charging
+work. Its image starts into a console on the top screen with a touch keyboard on the bottom
+one, for using the DS+ as a small Linux computer and building programs for it.
+
+## I want to play games. Is this what I need?
+
+You want **[DSlot]({{ config.extra.dslot_site }}/)**: the game system built on nibOS, with a game
+shelf on both screens and emulators for eighteen systems. It has its own image, which includes
+nibOS, and its own manual. nibOS's image has no shelf and no emulators.
 
 ## Which devices does it run on?
 
@@ -16,60 +29,42 @@ back and you're on stock again.
 
 No. Write nibOS to a card of its own and keep your stock card as it is.
 
-## Does it come with games?
+## Is it a full Linux system?
 
-No. Bring your own, or try the free homebrew made for these systems.
-
-## Which systems does it play?
-
-DS, Game Boy Advance, Game Boy, Game Boy Color, SNES, NES, Famicom Disk System, Mega Drive,
-Master System, SG-1000, Game Gear, PC Engine and PC Engine CD, PlayStation, Atari Lynx, Neo Geo
-Pocket, WonderSwan and Game & Watch, and PortMaster's ports. The folders and file types for each
-are in [Games, BIOS and saves](@/manual/games.md).
-
-## Can I use my existing games card?
-
-Yes. nibOS uses the same `Roms/` folders as the stock system, so a games card works as it is in
-TF2, as long as it is exFAT and labelled `DS`; so does a card set up for slot CFW. Saves made by other emulators may need copying across:
-battery saves carry over, save states don't.
+Yes: Arch Linux ARM with systemd, `pacman`, SSH and a full userland, on a 64-bit ARM processor
+with the open Panfrost GPU driver in the kernel. [The console](@/manual/console.md).
 
 ## Is it fast?
 
-A picture on both screens 1.5 seconds after the power button, the shelf at about 5 seconds; a
-game from the shelf in about 2 seconds, and back in under one.
-
-## How long does the battery last?
-
-It depends on what you play and how bright the screens are. Wi-Fi off, a lower brightness
-and closing the lid between sessions all stretch it.
-[Sleep, charging and the battery](@/manual/power.md).
+A picture on both screens 1.5 seconds after the power button, the console at about 5 seconds:
+the bootloader's first stage starts the kernel 0.65 seconds after reset.
 
 ## How do I update it?
 
-Over Wi-Fi: DSlot's menu → **Update**, or `nib update` in the console. An update replaces the
-whole system in one piece and keeps your games, saves and settings; if the new version doesn't
-start, the DS+ goes back to the old one by itself. [Updates](@/manual/updates.md).
+`nib update check`, `download`, `apply`. An update replaces the whole system in one piece and
+keeps your home folder, data and settings; if the new version doesn't start, the DS+ goes back
+to the old one by itself. Packages added with `pacman` need installing again after it.
+[Updates](@/manual/updates.md).
 
-## Is it a full Linux system?
+## Can I add DSlot to it later?
 
-Yes: Arch Linux ARM with systemd, a console with a touch keyboard, SSH, `pacman`. The
-[base edition](@/manual/console.md#the-base-edition) starts into the console instead of the
-game shelf.
+Not with `pacman`: DSlot and its emulators aren't in a package repository yet. Write
+[DSlot's image]({{ config.extra.dslot_site }}/download/) over the card instead; it keeps the
+NIBOS-DATA partition.
 
-## Can I write apps for it?
+## Can I write programs for it?
 
-Yes. nibkit, the SDK, gives an app both screens, the buttons, touch, brightness, sound and
-settings, and DSlot's menu; a template app runs on the device as it is. See
-[Apps](@/apps.md#writing-your-own).
+Yes. Anything that builds for 64-bit ARM Linux runs. nibkit, the SDK, gives a program both
+screens, the buttons, touch, brightness, sound and settings; a template app runs on the device
+as it is. See [Projects](@/apps.md#writing-your-own).
 
 ## Was it made with AI?
 
-Yes. nibOS, DSlot and the emulators were written by AI agents (Claude, in Claude Code),
-directed by one person and played on a real RG DS+ throughout. Contributions made with AI are
-welcome ([Contributing](@/contributing.md)).
+Yes. nibOS was written by AI agents (Claude, in Claude Code), directed by one person and run on
+a real RG DS+ throughout. Contributions made with AI are welcome
+([Contributing](@/contributing.md)).
 
 ## Where do I report a bug?
 
-On the issue tracker of the project it's in; if you aren't sure which,
-[nibOS's](https://github.com/abradburne/nibos/issues). Include the log
-from the card: [Reporting a bug](@/manual/troubleshooting.md#reporting-a-bug).
+On [nibOS's issue tracker](https://github.com/abradburne/nibos/issues). Include the log from
+the card: [Reporting a bug](@/manual/troubleshooting.md#reporting-a-bug).

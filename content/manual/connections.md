@@ -1,26 +1,23 @@
 +++
 title = "Wi-Fi and Bluetooth"
-description = "Turning the radios on, joining networks, pairing headphones and controllers."
-weight = 6
+description = "Turning the radios on, joining networks, when the network comes up, pairing keyboards and headphones, and SSH."
+weight = 5
 +++
 
-On a fresh card both radios are off. Each stays as you leave it, across restarts. Turning
-Wi-Fi off when you don't need it gives you noticeably more battery.
+On a fresh card both radios are off, except that Wi-Fi comes on by itself when `provision.toml`
+named a network. Each stays as you leave it, across restarts. Turning Wi-Fi off when you don't
+need it gives you noticeably more battery.
 
 ## Wi-Fi
 
-In DSlot, press **X** for the menu and go to the **Network** tab's **Wi-Fi** section (or tap
-the Wi-Fi icon in the status bar):
+```sh
+nib wifi on                                  # the radio; off, status
+iwctl station wlan0 scan
+iwctl station wlan0 get-networks             # the networks in range
+iwctl station wlan0 connect "My network"     # asks for the password
+```
 
-- **Wi-Fi**: the switch.
-- The network you are on.
-- **Look for networks**, then each network in range with its signal, and whether it is saved.
-- **A** on a network joins it. One that needs a password brings up the keyboard.
-- **A twice** on the network you are on leaves it. **Y twice** on a saved network forgets it.
-
-The keyboard: the D-pad and **A** type (or tap the keys), **B** deletes, **X** types a space,
-**Y** shows the password as you type it, **L** is Shift, **R** symbols, **Start** is Done and
-**Select** cancels.
+`iwctl` is iwd's own tool; run it alone for an interactive prompt. Networks it joins are kept.
 
 Other ways to add a network:
 
@@ -35,42 +32,40 @@ Other ways to add a network:
   A network whose name has anything but letters, digits, `-` and `_` needs its name written in
   hex: `=` followed by the name's bytes, `=4d79204e6574.psk` for "My Net". An open network is
   `<network>.open`, empty.
-- In the console: `iwctl station wlan0 connect <network>`.
 
 After sleep, Wi-Fi reconnects about 2 seconds after the DS+ wakes.
 
-### Network info
+### When the network comes up
 
-The Wi-Fi section shows your address (**Address**) under the network you are on. For the rest,
-go to the **Network info** section (R2, a tap, or **Y** in Wi-Fi): whether Wi-Fi is on and connected,
-the network and its signal, the address, gateway and DNS servers, the device's name on the
-network (`nibos.local`, what to `ssh` to), the Wi-Fi MAC address, and whether the internet,
-nibOS's update server and its bug tracker can be reached ("Reachable", "No route" or "DNS
-failed"). It updates as you watch; **A** runs the checks again. When asking for help with a
-connection or a bug report that won't send, this is the section to read out.
+With Wi-Fi on, nibOS brings the network up at every start. `nib net status` says whether it is
+up and when it comes up; `sudo nib net mode` changes that from the next start:
 
-In a game, the menu's **Connections** page turns Wi-Fi and Bluetooth on or off; choosing a
-network is in DSlot.
+| Mode | The network comes up |
+|---|---|
+| `boot` | With the system: the default. |
+| `deferred` | Once start-up has finished, at the lowest priority. |
+| `demand` | Only when something asks for it (`sudo nib net up`), which saves battery. |
+
+`sudo nib net up` and `down` bring it up or down now.
 
 ## Bluetooth
 
-In DSlot's menu (X), the **Network** tab's **Bluetooth** section:
+```sh
+nib bluetooth on
+bluetoothctl
+```
 
-- **Bluetooth**: the switch.
-- Your paired devices (headphones, controllers, keyboards), with their battery where they
-  report it. **A** connects or disconnects one; **Y twice** forgets it.
-- **Pair a new device**: put your device in pairing mode first, then choose this. nibOS looks
-  for devices; **A** on one pairs it, asking for a PIN, or to check a passkey on both, where the
-  device needs one, and connects it.
+In `bluetoothctl`: `scan on`, then `pair <address>`, `trust <address>` and
+`connect <address>` for the device you want, and `exit`. Paired devices are kept, and connect
+again by themselves.
 
 **Headphones.** When Bluetooth headphones connect, the sound moves to them; the volume keys then
 set their volume. The codecs are SBC, aptX, LDAC and Opus. Bluetooth audio is new:
-[tell us](@/manual/troubleshooting.md#reporting-a-bug) how your headphones get on. In a game, the menu's **Connections** page connects
-or disconnects paired headphones with one press.
+[tell us](@/manual/troubleshooting.md#reporting-a-bug) how your headphones get on.
 
-**Controllers and keyboards** pair the same way. A Bluetooth keyboard types in the console.
+**Keyboards** pair the same way, and type in the console.
 
 ## SSH
 
 With a key given in `provision.toml` and Wi-Fi on, you can log in from a computer on the same
-network: `ssh nibos@nibos.local`. See [The console and the base edition](@/manual/console.md).
+network: `ssh nibos@nibos.local`. See [The console](@/manual/console.md#ssh).

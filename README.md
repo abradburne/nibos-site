@@ -1,11 +1,14 @@
 # nibos-site
 
 The nibOS website and its user manual, for the Anbernic RG DS+, from one set of Markdown
-files, so the two never drift. It's a static site: no scripts, no tracking, no cookies and no
+files, so the two never drift. nibOS is the Linux system, and this site offers its image, which
+starts into a console. DSlot, the game system built on nibOS, has its own site and manual at
+https://dslot.alanb.dev/ ([dslot-site](https://github.com/abradburne/dslot-site)), built from
+the same templates; a change to the design goes into both. It's a static site: no scripts, no tracking, no cookies and no
 requests to other sites. Light and dark follow the reader's setting. It uses DSlot's look:
 Roboto Condensed (self-hosted, subset to Latin), near-black panels and gold, and the RG DS+
-drawn in CSS around DSlot's own screenshots. The floating device and the systems strip stop
-moving for readers who ask for less motion.
+drawn in CSS around nibOS's console, drawn in HTML: an illustration, not a capture. The
+floating device and the console's cursor stop moving for readers who ask for less motion.
 
 ```sh
 brew install zola      # Zola 0.23 (one binary; https://www.getzola.org for other systems)
@@ -19,11 +22,11 @@ make check             # and every external link
 | Path | What |
 |---|---|
 | `content/_index.md` | The home page. Its front matter holds the words: the headline, stats, systems, features, cards and the stack |
-| `content/download.md` | Images, how to check them, release notes, licences, the source |
+| `content/download.md` | The image, how to check it, release notes, licences, the source |
 | `content/manual/` | The manual, one chapter per file, ordered by each file's `weight` |
-| `content/apps.md`, `faq.md`, `contributing.md`, `licences.md` | The other pages |
-| `zola.toml` | The site's settings, and the release: `[extra.release]` is the one place where a release's version, files, sizes, checksums and update key are written. The home and download pages read it |
-| `templates/` | The pages' HTML (Tera 2) and `404.html`; `components.html` holds the components: the CSS-drawn device, screenshots, icons and the download cards |
+| `content/apps.md` (Projects), `faq.md`, `contributing.md`, `licences.md` | The other pages |
+| `zola.toml` | The site's settings, and the release: `[extra.release]` is the one place where a release's version, files, sizes, checksums and update key are written. The home and download pages read it. `dslot_site` is DSlot's site's address |
+| `templates/` | The pages' HTML (Tera 2) and `404.html`; `components.html` holds the components: the CSS-drawn device (with a screenshot, or with the console drawn in HTML), screenshots, icons and the download cards |
 | `static/` | The stylesheet, the font, the icon and the screenshots |
 | `.github/workflows/pages.yml` | Builds the site and publishes it on GitHub Pages |
 
@@ -41,9 +44,12 @@ the site and deploys it to GitHub Pages.
 
 ## A new release
 
-1. In `zola.toml`, under `[extra.release]`, set the version, tag, date and commit, each image's
-   file name, size and SHA-256 (copied from the release's `SHA256SUMS`), and `published = true`
-   once the files are on the release page.
+Each nibOS release also carries DSlot's image; [dslot-site](https://github.com/abradburne/dslot-site)
+offers it, and changes with this one.
+
+1. In `zola.toml`, under `[extra.release]`, set the version, tag, date and commit, the image's
+   file name (`nibos-<version>-rg-ds-plus.img.xz`), size and SHA-256 (copied from the release's
+   `SHA256SUMS`), and `published = true` once the files are on the release page.
 2. Update the release notes in `content/download.md`.
 3. Change the manual wherever behaviour has changed, and update Known issues.
 

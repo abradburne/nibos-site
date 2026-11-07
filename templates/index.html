@@ -17,7 +17,7 @@
       <p class="hero-note"><span class="pill">Beta</span> {% if r.published %}{{ r.version }}, released {{ r.date }}: <a href="{{ get_url(path='@/download.md') }}#release-notes">what's new</a>.{% else %}The first alpha is being prepared.{% endif %}</p>
     </div>
     <div class="hero-device">
-      {{ <device src="shelf.png" alt="An RG DS+ running DSlot: a game's box with its play time on the top screen; three game carts over a card slot on the bottom, touch screen." eager={true} /> }}
+      {{ <console text={"nibOS " ~ r.version ~ "\nArch Linux ARM · Linux 7.3\n\n[nibos@nibos ~]$ "} alt={x.hero_alt} /> }}
     </div>
   </div>
   <div class="wrap">
@@ -29,15 +29,6 @@
   </div>
 </section>
 
-<section class="systems" aria-label="Systems nibOS plays">
-  <div class="marquee">
-    {%- for pass in [1, 2] %}
-    <ul{% if pass == 2 %} aria-hidden="true"{% endif %}>
-      {%- for s in x.systems %}<li><span class="dot" style="--c: {{ s.colour }}"></span>{{ s.name }}</li>{% endfor %}
-    </ul>
-    {%- endfor %}
-  </div>
-</section>
 
 {%- for f in x.features %}
 <section class="feature{% if loop.index is even %} flip{% endif %}">
@@ -49,7 +40,7 @@
       <p><a class="more" href="{{ get_url(path=f.link) }}">{{ f.link_text }} {{ <icon name="arrow" /> }}</a></p>
     </div>
     <div class="feature-device">
-      {{ <device src={f.image} alt={f.alt} size="small" /> }}
+      {{ <console text={f.console} alt={f.alt} size="small" /> }}
     </div>
   </div>
 </section>
@@ -57,7 +48,7 @@
 
 <section class="cards-band">
   <div class="wrap">
-    <p class="kicker">The rest of the device</p>
+    <p class="kicker">The device</p>
     <h2>Everything on the board works</h2>
     <ul class="cards">
       {%- for c in x.cards %}
@@ -70,9 +61,9 @@
 <section class="stack-band">
   <div class="wrap stack-grid">
     <div>
-      <p class="kicker">Under the shelf</p>
+      <p class="kicker">The stack</p>
       <h2>Mainline, open, and yours</h2>
-      <p>No frozen vendor kernel: mainline Linux and U-Boot, open graphics drivers, and all of Arch Linux ARM underneath. Every part is free software.</p>
+      <p>No frozen vendor kernel: mainline Linux and U-Boot, open graphics drivers, and all of Arch Linux ARM. Every part is free software.</p>
       <p><a class="more" href="{{ get_url(path='@/apps.md') }}">The projects {{ <icon name="arrow" /> }}</a> &nbsp; <a class="more" href="{{ get_url(path='@/licences.md') }}">The licences {{ <icon name="arrow" /> }}</a></p>
     </div>
     <ol class="stack" reversed>
@@ -86,13 +77,21 @@
 <section class="start-band">
   <div class="wrap">
     <p class="kicker">Start here</p>
-    <h2>Three steps to the shelf</h2>
+    <h2>Three steps to a shell</h2>
     <ol class="steps">
-      <li><a href="{{ get_url(path='@/download.md') }}"><span class="step-n">1</span><strong>Download</strong><span>An image for the DS+, and its checksum.</span></a></li>
-      <li><a href="{{ get_url(path='@/manual/install.md') }}"><span class="step-n">2</span><strong>Write a card</strong><span>With balenaEtcher or dd. Your stock card stays as it is.</span></a></li>
-      <li><a href="{{ get_url(path='@/manual/games.md') }}"><span class="step-n">3</span><strong>Add your games</strong><span>Copy them into Roms/ and power on.</span></a></li>
+      <li><a href="{{ get_url(path='@/download.md') }}"><span class="step-n">1</span><strong>Download</strong><span>The image for the DS+, and its checksum.</span></a></li>
+      <li><a href="{{ get_url(path='@/manual/install.md') }}"><span class="step-n">2</span><strong>Write a card</strong><span>With Raspberry Pi Imager or dd, and your SSH key beside it. Your stock card stays as it is.</span></a></li>
+      <li><a href="{{ get_url(path='@/manual/first-boot.md') }}"><span class="step-n">3</span><strong>Power on</strong><span>The console on the screens, or ssh nibos@nibos.local.</span></a></li>
     </ol>
-    <p class="small">Bring your own games, or dive into the free homebrew made for these systems.</p>
+  </div>
+</section>
+
+<section class="cards-band dslot-band">
+  <div class="wrap">
+    <p class="kicker">For playing</p>
+    <h2>Games? That's DSlot.</h2>
+    <p>DSlot is the game system built on nibOS: a game shelf on both screens and emulators for eighteen systems behind one menu. It comes as a card of its own, nibOS included, with its own manual.</p>
+    <p class="actions"><a class="button primary" href="{{ config.extra.dslot_site }}/">DSlot's site {{ <icon name="arrow" /> }}</a> <a class="button ghost" href="{{ config.extra.dslot_site }}/download/">{{ <icon name="download" /> }}Download DSlot</a></p>
   </div>
 </section>
 

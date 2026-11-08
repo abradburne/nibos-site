@@ -30,7 +30,7 @@ jobs:
       - name: Install Zola
         run: |
           f="zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
-          curl -fsSL -o "$f" "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/$f"
+          curl -fsSL --retry 5 --retry-all-errors --retry-delay 10 -o "$f" "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/$f"
           echo "${ZOLA_SHA256}  $f" | sha256sum -c -
           tar xzf "$f" zola && sudo mv zola /usr/local/bin/
       - name: Build

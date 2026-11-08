@@ -17,7 +17,7 @@ description = "The nibOS image for the Anbernic RG DS+, how to check it, the rel
 
 ## nibOS {{ r.version }}
 
-The first beta, released {{ r.date }}: nibOS 0.1.0's features are all in, and the betas from
+The second beta, released {{ r.date }}: nibOS 0.1.0's features are all in, and the betas from
 here to 0.1.0 bring fixes. For the **Anbernic RG DS+** only. A DS+ running nibOS's image
 (0.1.0-alpha1 or later) can take it as an [update](@/manual/updates.md) instead of a new card.
 Write the image to a microSD card of 16 GB or more with Raspberry Pi Imager or `dd`, or with
@@ -77,16 +77,24 @@ use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-alpha6:
+What changed since 0.1.0-beta1:
 
-- **Choose when a sleeping device powers off:** `sudo nib sleep off-after 15` (minutes), or
-  `never`. With the lid closed on battery, the DS+ powers off at that time and stays off.
-- **Deep sleep draws less:** 49 mA asleep, from 52 mA.
-- **Updated systems use their whole partition:** a DS+ updated from an alpha gets 1.3 GB back on
-  its first start of this release.
+- **`nib update` says what the updater is doing at every step:** checking, finishing a download
+  (its boot files and your settings) and restarting each have their own line, and "up to date"
+  means just that.
+- **Volume and brightness steps are announced:** nibos-hw's daemons write each change to
+  `/run/nibos/osd/`, which nibkit 0.4's apps read to show the new level on screen.
+- **The card image is named for what it is:** `nibos-<version>-rg-ds-plus.img.xz`. The update
+  files keep their names, so every DS+ already installed finds its updates as before.
+- **mesa-nibos** carries two Panfrost fixes that make GPU-drawn programs faster.
+
+[0.1.0-beta1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1) brought power off
+when asleep (`sudo nib sleep off-after`), deep sleep at 49 mA, and the whole system partition
+for updated devices.
 
 What changed in DSlot and the emulators is on [DSlot's download page]({{ ds }}/download/#release-notes).
-The alphas' notes are on their release pages:
+The earlier releases' notes are on their release pages:
+[0.1.0-beta1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1),
 [0.1.0-alpha6](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha6),
 [0.1.0-alpha5](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha5),
 [0.1.0-alpha4](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha4),

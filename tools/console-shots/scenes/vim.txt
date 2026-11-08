@@ -1,0 +1,24 @@
+Things to try on the DS+
+- ssh in from the laptop
+- pacman -S git
+- write a nibkit app
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+\e[1;34m~\e[0m
+"notes.txt" 4L, 87B                           4,20          All

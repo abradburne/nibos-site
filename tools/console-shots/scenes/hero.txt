@@ -1,0 +1,14 @@
+[nibos@nibos ~]$ uname -m
+aarch64
+[nibos@nibos ~]$ nib battery
+charge:  78% (Discharging)
+protect: on (charges to 4100 mV, about 80-85%)
+[nibos@nibos ~]$ nib wifi status
+on
+[nibos@nibos ~]$ nib net status
+up
+mode: boot
+[nibos@nibos ~]$ nib brightness top 40
+[nibos@nibos ~]$ ls /mnt
+ds  roms
+[nibos@nibos ~]$ sudo pacman -S git

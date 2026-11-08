@@ -5,10 +5,11 @@ files, so the two never drift. nibOS is the Linux system, and this site offers i
 starts into a console. DSlot, the game system built on nibOS, has its own site and manual at
 https://dslot.alanb.dev/ ([dslot-site](https://github.com/abradburne/dslot-site)), built from
 the same templates; a change to the design goes into both. It's a static site: no scripts, no tracking, no cookies and no
-requests to other sites. Light and dark follow the reader's setting. It uses DSlot's look:
-Roboto Condensed (self-hosted, subset to Latin), near-black panels and gold, and the RG DS+
-drawn in CSS around nibOS's console, drawn in HTML: an illustration, not a capture. The
-floating device and the console's cursor stop moving for readers who ask for less motion.
+requests to other sites. Light and dark follow the reader's setting. It uses DSlot's look, in
+blue where DSlot's is gold: Roboto Condensed (self-hosted, subset to Latin) and near-black
+panels. The home page shows an RG DS+ rendered in Blender (`tools/rgds-plus.py`) and three
+pictures of the console, drawn by `tools/console-shots` with nibOS's own keyboard code and
+kernel font.
 
 ```sh
 brew install zola      # Zola 0.23 (one binary; https://www.getzola.org for other systems)
@@ -21,13 +22,14 @@ make check             # and every external link
 
 | Path | What |
 |---|---|
-| `content/_index.md` | The home page. Its front matter holds the words: the headline, stats, systems, features, cards and the stack |
+| `content/_index.md` | The home page. Its front matter holds the words: the headline, the render and console pictures, the two features, the figures, the notes, the steps and the stack |
 | `content/download.md` | The image, how to check it, release notes, licences, the source |
 | `content/manual/` | The manual, one chapter per file, ordered by each file's `weight` |
 | `content/apps.md` (Projects), `faq.md`, `contributing.md`, `licences.md` | The other pages |
 | `zola.toml` | The site's settings, and the release: `[extra.release]` is the one place where a release's version, files, sizes, checksums and update key are written. The home and download pages read it. `dslot_site` is DSlot's site's address |
-| `templates/` | The pages' HTML (Tera 2) and `404.html`; `components.html` holds the components: the CSS-drawn device (with a screenshot, or with the console drawn in HTML), screenshots, icons and the download cards |
-| `static/` | The stylesheet, the font, the icon and the screenshots |
+| `templates/` | The pages' HTML (Tera 2) and `404.html`; `components.html` holds the components: two-screen pictures, screenshots, icons and the download cards |
+| `static/` | The stylesheet, the font, the icon, the render (`img/rgds-plus.webp`) and the console pictures (`img/console-*.webp`) |
+| `tools/` | `rgds-plus.py`, the RG DS+ in Blender (`--shell` and `--buttons` set its colours; this site's is `--shell "#101a38" --buttons "#0b1124"`), and `console-shots`, the console pictures |
 | `.github/workflows/pages.yml` | Builds the site and publishes it on GitHub Pages |
 
 ## Publishing
@@ -58,7 +60,7 @@ offers it, and changes with this one.
 - Plain, precise English, to a reference standard. Describe what is true of the image a reader
   installs, and nothing that hasn't been run on a device.
 - No comparisons with other firmwares or emulators. No ROMs, BIOS files or game artwork, in
-  text or pictures. The screenshots are DSlot's own, with the made-up demo games DSlot draws.
+  text or pictures.
 - For engineering detail, link the projects' own documentation rather than repeating it.
 - Links between pages take the form `@/manual/install.md#anchor`. Zola checks each one when it
   builds, so a renamed heading breaks the build rather than the site.
@@ -68,9 +70,8 @@ offers it, and changes with this one.
 
 | | Licence |
 |---|---|
-| The screenshots (`static/img/*.png`) | From [DSlot](https://github.com/abradburne/DSlot)'s documentation, GPL-3.0-or-later. The games in them are DSlot's made-up demo titles and icons |
 | Roboto Condensed (`static/fonts/`) | SIL Open Font License 1.1 ([OFL.txt](static/fonts/OFL.txt)), copyright 2011 The Roboto Project Authors; subset to Latin |
-| The text (`content/`) and the icon | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ([LICENSE-CC-BY-SA-4.0.txt](LICENSE-CC-BY-SA-4.0.txt)) |
-| The templates, stylesheet (with the CSS-drawn device), `zola.toml`, `Makefile` and workflow | MIT ([LICENSE-MIT](LICENSE-MIT)) |
+| The text (`content/`), the icon, the render and the console pictures (`static/img/`) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) ([LICENSE-CC-BY-SA-4.0.txt](LICENSE-CC-BY-SA-4.0.txt)) |
+| The templates, stylesheet, `tools/`, `zola.toml`, `Makefile` and workflow | MIT ([LICENSE-MIT](LICENSE-MIT)) |
 
 [LICENSE](LICENSE) says which licence covers which file.

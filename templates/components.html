@@ -5,41 +5,17 @@
 <figure><img src="{{ get_url(path='img/' ~ src) }}" width="{{ width }}" height="{{ height }}" alt="{{ alt }}" loading="lazy">{% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}</figure>
 {% endcomponent shot %}
 
-{#- The RG DS+ drawn in CSS, open, showing a two-screen capture (top half on the lid, bottom
-    half on the base). The capture is one picture; the base shows its lower half. -#}
-{% component device(src: string, alt: string, size: string = "", eager: bool = false) %}
-<figure class="ds {{ size }}" role="img" aria-label="{{ alt }}">
-  <div class="ds-lid">
-    <div class="ds-screen"><img src="{{ get_url(path='img/' ~ src) }}" width="512" height="768" alt=""{% if not eager %} loading="lazy"{% endif %}></div>
+{#- A two-screen capture as it is: the top screen and the touch screen, one above the other with a
+    small gap. Captures are 1024 x 1536 (shown at 512 x 768), two 1024 x 768 screens. No device is drawn around them. -#}
+{% component screens(src: string, alt: string, caption: string = "", eager: bool = false) %}
+<figure class="screens">
+  <div class="screens-pair" role="img" aria-label="{{ alt }}">
+    <span class="screen top"><img src="{{ get_url(path='img/' ~ src) }}" width="512" height="768" alt=""{% if not eager %} loading="lazy"{% endif %}></span>
+    <span class="screen bottom"><img src="{{ get_url(path='img/' ~ src) }}" width="512" height="768" alt=""{% if not eager %} loading="lazy"{% endif %}></span>
   </div>
-  <div class="ds-hinge" aria-hidden="true"></div>
-  <div class="ds-base" aria-hidden="true">
-    <span class="ds-dpad"></span>
-    <div class="ds-screen ds-lower"><img src="{{ get_url(path='img/' ~ src) }}" width="512" height="768" alt=""{% if not eager %} loading="lazy"{% endif %}></div>
-    <span class="ds-abxy"><i></i><i></i><i></i><i></i></span>
-  </div>
+  {%- if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
 </figure>
-{% endcomponent device %}
-
-{#- The RG DS+ drawn in CSS with nibOS's console: `text` on the top screen (as typed, newlines
-    kept), the touch keyboard on the bottom one. An illustration, not a capture: the alt says so. -#}
-{% component console(text: string, alt: string, size: string = "") %}
-<figure class="ds {{ size }}" role="img" aria-label="{{ alt }}">
-  <div class="ds-lid">
-    <div class="ds-screen ds-term"><pre>{{ text }}<span class="ds-cursor"></span></pre></div>
-  </div>
-  <div class="ds-hinge" aria-hidden="true"></div>
-  <div class="ds-base" aria-hidden="true">
-    <span class="ds-dpad"></span>
-    <div class="ds-screen ds-keys">
-      {%- for row in [["Esc", "^C", "^D", "^Z", "^L", "Home", "End"], ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"], ["a", "s", "d", "f", "g", "h", "j", "k", "l", "⌫"], ["⇧", "z", "x", "c", "v", "b", "n", "m", "-", "/"], ["Ctrl", "Alt", " ", "Fn", "⏎"]] %}
-      <div>{% for k in row %}<i{% if k == " " %} class="space"{% elif k | length > 2 %} class="wide"{% endif %}>{{ k }}</i>{% endfor %}</div>
-      {%- endfor %}
-    </div>
-    <span class="ds-abxy"><i></i><i></i><i></i><i></i></span>
-  </div>
-</figure>
-{% endcomponent console %}
+{% endcomponent screens %}
 
 {#- Line icons, drawn to a 24-unit grid with the text's colour. -#}
 {% component icon(name: string) %}

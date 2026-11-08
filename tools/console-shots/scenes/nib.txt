@@ -1,0 +1,8 @@
+[nibos@nibos ~]$ nib net status
+up
+mode: boot
+[nibos@nibos ~]$ nib brightness top 40
+[nibos@nibos ~]$ nib battery protect on
+[nibos@nibos ~]$ ls /mnt
+ds  roms
+[nibos@nibos ~]$ 

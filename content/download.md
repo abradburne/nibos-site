@@ -77,23 +77,24 @@ use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-beta1:
+What changed since 0.1.0-beta2:
 
-- **`nib update` says what the updater is doing at every step:** checking, finishing a download
-  (its boot files and your settings) and restarting each have their own line, and "up to date"
-  means just that.
-- **Volume and brightness steps are announced:** nibos-hw's daemons write each change to
-  `/run/nibos/osd/`, which nibkit 0.4's apps read to show the new level on screen.
-- **The card image is named for what it is:** `nibos-<version>-rg-ds-plus.img.xz`. The update
-  files keep their names, so every DS+ already installed finds its updates as before.
-- **mesa-nibos** carries two Panfrost fixes that make GPU-drawn programs faster.
+- **The power key starts the DS+ after a power-off.** Since beta1 it could stay dark until the
+  power key was held for a reset; a tap now starts it (the PMIC's sleep line is routed only
+  while asleep).
+- **Asleep too long, it really powers off**, instead of going back to sleep every hour.
+- **Help files**: `/usr/share/nibos/help/` and this release's `/usr/share/nibos/whats-new.txt`,
+  which DSlot's System → Help and nibkit 0.5's `guide` show.
 
+[0.1.0-beta2](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta2) brought the
+updater's step-by-step status, the volume and brightness announcements and two Panfrost fixes.
 [0.1.0-beta1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1) brought power off
 when asleep (`sudo nib sleep off-after`), deep sleep at 49 mA, and the whole system partition
 for updated devices.
 
 What changed in DSlot and the emulators is on [DSlot's download page]({{ ds }}/download/#release-notes).
 The earlier releases' notes are on their release pages:
+[0.1.0-beta2](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta2),
 [0.1.0-beta1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1),
 [0.1.0-alpha6](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha6),
 [0.1.0-alpha5](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha5),

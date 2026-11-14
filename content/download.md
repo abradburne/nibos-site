@@ -17,7 +17,8 @@ description = "The nibOS image for the Anbernic RG DS+, how to check it, the rel
 
 ## nibOS {{ r.version }}
 
-The second beta, released {{ r.date }}: nibOS 0.1.0's features are all in, and the betas from
+The fourth beta, released {{ r.date }}: a low-battery warning, a long sleep that really ends
+in a power-off, and Linux 7.3.4. nibOS 0.1.0's features are all in, and the betas from
 here to 0.1.0 bring fixes. For the **Anbernic RG DS+** only. A DS+ running nibOS's image
 (0.1.0-alpha1 or later) can take it as an [update](@/manual/updates.md) instead of a new card.
 Write the image to a microSD card of 16 GB or more with Raspberry Pi Imager or `dd`, or with
@@ -69,7 +70,7 @@ use the `.img.xz`.
 ## What's in it
 
 - **nibOS**: mainline U-Boot v2026.10 (SPL in Falcon mode: the kernel 0.65 s after reset),
-  mainline Linux 7.3-rc7 with nibOS's patches, Arch Linux ARM, nibOS's hardware layer, the safe
+  mainline Linux 7.3.4 with nibOS's patches, Arch Linux ARM, nibOS's hardware layer, the safe
   mode, the start-up and goodbye pictures, and the updater.
 - **The console**: on the top screen, with the touch keyboard on the bottom one; SSH (with a
   key from `provision.toml`) and Wi-Fi at boot.
@@ -77,15 +78,20 @@ use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-beta2:
+What changed since 0.1.0-beta3:
 
-- **The power key starts the DS+ after a power-off.** Since beta1 it could stay dark until the
-  power key was held for a reset; a tap now starts it (the PMIC's sleep line is routed only
-  while asleep).
-- **Asleep too long, it really powers off**, instead of going back to sleep every hour.
-- **Help files**: `/usr/share/nibos/help/` and this release's `/usr/share/nibos/whats-new.txt`,
-  which DSlot's System → Help and nibkit 0.5's `guide` show.
+- **A low-battery warning and a safe power-off.** At 10% and again at 5% the red LED blinks,
+  faster when lower, and `/run/nibos/battery-alert` says so for apps. At 2% the DS+ powers
+  itself off. Plugging in the charger clears it.
+- **Asleep too long, it really powers off.** With the lid closed it went back to sleep every
+  hour until the power key woke it, and then shut down instead of starting. It now powers off
+  after the set time, and a tap of power starts it.
+- **The power key starts the DS+ after a power-off, also after a sleep** (beta3's fix only held
+  until the first sleep).
+- **Linux 7.3.4**, the stable release, in place of a 7.3 release candidate.
 
+[0.1.0-beta3](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta3) brought the power
+key starting the DS+ after a power-off, and help files (`/usr/share/nibos/help/`).
 [0.1.0-beta2](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta2) brought the
 updater's step-by-step status, the volume and brightness announcements and two Panfrost fixes.
 [0.1.0-beta1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1) brought power off
@@ -94,6 +100,7 @@ for updated devices.
 
 What changed in DSlot and the emulators is on [DSlot's download page]({{ ds }}/download/#release-notes).
 The earlier releases' notes are on their release pages:
+[0.1.0-beta3](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta3),
 [0.1.0-beta2](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta2),
 [0.1.0-beta1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1),
 [0.1.0-alpha6](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha6),
@@ -128,6 +135,6 @@ image, and for at least three years after this release was last offered:
 DSlot's image adds DSlot, its emulators and nibkit, whose sources are listed on
 [its download page]({{ ds }}/download/#licences-and-source).
 
-The kernel is mainline Linux at `0fcb05b` with the patches in nibOS's `kernel/`,
+The kernel is mainline Linux 7.3.4 (`7595a62`) with the patches in nibOS's `kernel/`,
 `socs/rk3568/kernel/` and `boards/rg-ds-plus/kernel/`; U-Boot is v2026.10 with the patches in
 `uboot/`, `socs/rk3568/uboot/` and `boards/rg-ds-plus/uboot/`.
